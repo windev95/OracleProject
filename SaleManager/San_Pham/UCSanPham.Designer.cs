@@ -41,7 +41,7 @@
             this.MOTA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SOLUONGTON = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GIANHAP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TENLOAIHANGHOA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TENLOAIHANG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TENNSX = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SUA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnSua = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -107,7 +107,7 @@
             this.MOTA,
             this.SOLUONGTON,
             this.GIANHAP,
-            this.TENLOAIHANGHOA,
+            this.TENLOAIHANG,
             this.TENNSX,
             this.SUA,
             this.XOA});
@@ -161,13 +161,13 @@
             this.GIANHAP.Visible = true;
             this.GIANHAP.VisibleIndex = 4;
             // 
-            // TENLOAIHANGHOA
+            // TENLOAIHANG
             // 
-            this.TENLOAIHANGHOA.Caption = "Loại Hàng Hóa";
-            this.TENLOAIHANGHOA.FieldName = "TENLOAIHANGHOA";
-            this.TENLOAIHANGHOA.Name = "TENLOAIHANGHOA";
-            this.TENLOAIHANGHOA.Visible = true;
-            this.TENLOAIHANGHOA.VisibleIndex = 5;
+            this.TENLOAIHANG.Caption = "Loại Hàng Hóa";
+            this.TENLOAIHANG.FieldName = "TENLOAIHANG";
+            this.TENLOAIHANG.Name = "TENLOAIHANG";
+            this.TENLOAIHANG.Visible = true;
+            this.TENLOAIHANG.VisibleIndex = 5;
             // 
             // TENNSX
             // 
@@ -204,7 +204,7 @@
             // 
             this.btnXoa.AutoHeight = false;
             this.btnXoa.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.BottomCenter, ((System.Drawing.Image)(resources.GetObject("btnXoa.Buttons"))), "Cancel", new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.BottomCenter, ((System.Drawing.Image)(resources.GetObject("btnXoa.Buttons"))), "Cancel", new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, serializableAppearanceObject5, "", null, null, true)});
             this.btnXoa.Name = "btnXoa";
             // 
             // groupBox1
@@ -423,14 +423,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraGrid.Columns.GridColumn MAHANGHOA;
         private DevExpress.XtraGrid.Columns.GridColumn TENHANGHOA;
-        private DevExpress.XtraGrid.Columns.GridColumn SUA;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnSua;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnXoa;
-        private DevExpress.XtraGrid.Columns.GridColumn XOA;
         private DevExpress.XtraGrid.Columns.GridColumn MOTA;
         private DevExpress.XtraGrid.Columns.GridColumn SOLUONGTON;
         private DevExpress.XtraGrid.Columns.GridColumn GIANHAP;
-        private DevExpress.XtraGrid.Columns.GridColumn TENLOAIHANGHOA;
+        private DevExpress.XtraGrid.Columns.GridColumn TENLOAIHANG;
         private DevExpress.XtraGrid.Columns.GridColumn TENNSX;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private DevExpress.XtraEditors.TextEdit txtGiaNhap;
@@ -450,5 +447,8 @@
         private DevExpress.XtraEditors.SimpleButton btnHuy;
         private DevExpress.XtraEditors.SimpleButton btnThem;
         private DevExpress.XtraEditors.SimpleButton btnLuu;
+        internal DevExpress.XtraGrid.Columns.GridColumn SUA;
+        internal DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnSua;
+        internal DevExpress.XtraGrid.Columns.GridColumn XOA;
     }
 }

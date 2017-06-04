@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CT_NHAPHANG">
+    <Key>
+      <PropertyRef Name="MAPN" />
+    </Key>
+    <Property Name="MAPN" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MAHANGHOA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SOLUONG" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TONGTIEN" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="PHIEUNHAP" Relationship="Self.SYS_C0011282" FromRole="CT_NHAPHANG" ToRole="PHIEUNHAP" />
+    <NavigationProperty Name="HANGHOA" Relationship="Self.SYS_C0011283" FromRole="CT_NHAPHANG" ToRole="HANGHOA" />
+  </EntityType>
+  <EntityType Name="CHUCVU">
+    <Key>
+      <PropertyRef Name="MACHUCVU" />
+    </Key>
+    <Property Name="MACHUCVU" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TENCHUCVU" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MOTA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NHANVIENs" Relationship="Self.SYS_C0011243" FromRole="CHUCVU" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="HANGHOA">
+    <Key>
+      <PropertyRef Name="MAHANGHOA" />
+    </Key>
+    <Property Name="MAHANGHOA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TENHANGHOA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GIANHAP" Type="Int64" Nullable="false" />
+    <Property Name="SOLUONGTON" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MOTA" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MANSX" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MALOAIHANG" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <NavigationProperty Name="CT_NHAPHANG" Relationship="Self.SYS_C0011283" FromRole="HANGHOA" ToRole="CT_NHAPHANG" />
+    <NavigationProperty Name="NHASANXUAT" Relationship="Self.HANGHOA_FK1" FromRole="HANGHOA" ToRole="NHASANXUAT" />
+    <NavigationProperty Name="LOAIHANGHOA" Relationship="Self.SYS_C0011251" FromRole="HANGHOA" ToRole="LOAIHANGHOA" />
+    <NavigationProperty Name="CT_PHIEUXUAT" Relationship="Self.SYS_C0011276" FromRole="HANGHOA" ToRole="CT_PHIEUXUAT" />
+  </EntityType>
+  <EntityType Name="LOAIHANGHOA">
+    <Key>
+      <PropertyRef Name="MALOAIHANG" />
+    </Key>
+    <Property Name="MALOAIHANG" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TENLOAIHANG" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HANGHOAs" Relationship="Self.SYS_C0011251" FromRole="LOAIHANGHOA" ToRole="HANGHOA" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MANHANVIEN" />
+    </Key>
+    <Property Name="MANHANVIEN" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TENNHANVIEN" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GIOITINH" Type="Int16" />
+    <Property Name="NTNS" Type="DateTime" />
+    <Property Name="SODIENTHOAI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CMND" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MACHUCVU" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <NavigationProperty Name="CHUCVU" Relationship="Self.SYS_C0011243" FromRole="NHANVIEN" ToRole="CHUCVU" />
+    <NavigationProperty Name="TAIKHOANs" Relationship="Self.SYS_C0011256" FromRole="NHANVIEN" ToRole="TAIKHOAN" />
+    <NavigationProperty Name="PHIEUXUATs" Relationship="Self.SYS_C0011262" FromRole="NHANVIEN" ToRole="PHIEUXUAT" />
+    <NavigationProperty Name="PHIEUNHAPs" Relationship="Self.SYS_C0011269" FromRole="NHANVIEN" ToRole="PHIEUNHAP" />
+  </EntityType>
+  <EntityType Name="NHAPHANPHOI">
+    <Key>
+      <PropertyRef Name="MANPP" />
+    </Key>
+    <Property Name="MANPP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TENNPP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SODIENTHOAI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DIACHI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHIEUNHAPs" Relationship="Self.SYS_C0011270" FromRole="NHAPHANPHOI" ToRole="PHIEUNHAP" />
+  </EntityType>
+  <EntityType Name="NHASANXUAT">
+    <Key>
+      <PropertyRef Name="MANSX" />
+    </Key>
+    <Property Name="MANSX" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TENNSX" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="HANGHOAs" Relationship="Self.HANGHOA_FK1" FromRole="NHASANXUAT" ToRole="HANGHOA" />
+  </EntityType>
+  <EntityType Name="PHIEUNHAP">
+    <Key>
+      <PropertyRef Name="MAPN" />
+    </Key>
+    <Property Name="MAPN" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NGAYNHAP" Type="DateTime" Nullable="false" />
+    <Property Name="MANHANVIEN" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MANPP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TINHTRANG" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="CT_NHAPHANG" Relationship="Self.SYS_C0011282" FromRole="PHIEUNHAP" ToRole="CT_NHAPHANG" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.SYS_C0011269" FromRole="PHIEUNHAP" ToRole="NHANVIEN" />
+    <NavigationProperty Name="NHAPHANPHOI" Relationship="Self.SYS_C0011270" FromRole="PHIEUNHAP" ToRole="NHAPHANPHOI" />
+  </EntityType>
+  <EntityType Name="PHIEUXUAT">
+    <Key>
+      <PropertyRef Name="MAPX" />
+    </Key>
+    <Property Name="MAPX" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NGAYXUATPHIEU" Type="DateTime" Nullable="false" />
+    <Property Name="MANHANVIEN" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TINHTRANG" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.SYS_C0011262" FromRole="PHIEUXUAT" ToRole="NHANVIEN" />
+    <NavigationProperty Name="CT_PHIEUXUAT" Relationship="Self.SYS_C0011275" FromRole="PHIEUXUAT" ToRole="CT_PHIEUXUAT" />
+  </EntityType>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="TAIKHOAN1" />
+    </Key>
+    <Property Name="TAIKHOAN1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MATKHAU" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MANHANVIEN" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MAHOA" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.SYS_C0011256" FromRole="TAIKHOAN" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="CT_PHIEUXUAT">
+    <Key>
+      <PropertyRef Name="MAPX" />
+      <PropertyRef Name="MAHANGHOA" />
+      <PropertyRef Name="SOLUONG" />
+      <PropertyRef Name="TONGTIEN" />
+    </Key>
+    <Property Name="MAPX" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MAHANGHOA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SOLUONG" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TONGTIEN" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="HANGHOA" Relationship="Self.SYS_C0011276" FromRole="CT_PHIEUXUAT" ToRole="HANGHOA" />
+    <NavigationProperty Name="PHIEUXUAT" Relationship="Self.SYS_C0011275" FromRole="CT_PHIEUXUAT" ToRole="PHIEUXUAT" />
+  </EntityType>
+  <EntityType Name="VIEWCHUCVU">
+    <Key>
+      <PropertyRef Name="MACHUCVU" />
+      <PropertyRef Name="TENCHUCVU" />
+    </Key>
+    <Property Name="MACHUCVU" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TENCHUCVU" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MOTA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VIEWHANGHOA">
+    <Key>
+      <PropertyRef Name="MAHANGHOA" />
+      <PropertyRef Name="TENHANGHOA" />
+      <PropertyRef Name="SOLUONGTON" />
+      <PropertyRef Name="GIANHAP" />
+      <PropertyRef Name="TENNSX" />
+    </Key>
+    <Property Name="MAHANGHOA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TENHANGHOA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MOTA" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SOLUONGTON" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="GIANHAP" Type="Int64" Nullable="false" />
+    <Property Name="TENLOAIHANG" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="TENNSX" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="SYS_C0011282">
+    <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="1" />
+    <End Role="CT_NHAPHANG" Type="Self.CT_NHAPHANG" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUNHAP">
+        <PropertyRef Name="MAPN" />
+      </Principal>
+      <Dependent Role="CT_NHAPHANG">
+        <PropertyRef Name="MAPN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011283">
+    <End Role="HANGHOA" Type="Self.HANGHOA" Multiplicity="1" />
+    <End Role="CT_NHAPHANG" Type="Self.CT_NHAPHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANGHOA">
+        <PropertyRef Name="MAHANGHOA" />
+      </Principal>
+      <Dependent Role="CT_NHAPHANG">
+        <PropertyRef Name="MAHANGHOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011243">
+    <End Role="CHUCVU" Type="Self.CHUCVU" Multiplicity="1" />
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUCVU">
+        <PropertyRef Name="MACHUCVU" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MACHUCVU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HANGHOA_FK1">
+    <End Role="NHASANXUAT" Type="Self.NHASANXUAT" Multiplicity="1" />
+    <End Role="HANGHOA" Type="Self.HANGHOA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHASANXUAT">
+        <PropertyRef Name="MANSX" />
+      </Principal>
+      <Dependent Role="HANGHOA">
+        <PropertyRef Name="MANSX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011251">
+    <End Role="LOAIHANGHOA" Type="Self.LOAIHANGHOA" Multiplicity="1" />
+    <End Role="HANGHOA" Type="Self.HANGHOA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIHANGHOA">
+        <PropertyRef Name="MALOAIHANG" />
+      </Principal>
+      <Dependent Role="HANGHOA">
+        <PropertyRef Name="MALOAIHANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011276">
+    <End Role="HANGHOA" Type="Self.HANGHOA" Multiplicity="1" />
+    <End Role="CT_PHIEUXUAT" Type="Self.CT_PHIEUXUAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANGHOA">
+        <PropertyRef Name="MAHANGHOA" />
+      </Principal>
+      <Dependent Role="CT_PHIEUXUAT">
+        <PropertyRef Name="MAHANGHOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011256">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANHANVIEN" />
+      </Principal>
+      <Dependent Role="TAIKHOAN">
+        <PropertyRef Name="MANHANVIEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011262">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="PHIEUXUAT" Type="Self.PHIEUXUAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANHANVIEN" />
+      </Principal>
+      <Dependent Role="PHIEUXUAT">
+        <PropertyRef Name="MANHANVIEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011269">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANHANVIEN" />
+      </Principal>
+      <Dependent Role="PHIEUNHAP">
+        <PropertyRef Name="MANHANVIEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011270">
+    <End Role="NHAPHANPHOI" Type="Self.NHAPHANPHOI" Multiplicity="1" />
+    <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHAPHANPHOI">
+        <PropertyRef Name="MANPP" />
+      </Principal>
+      <Dependent Role="PHIEUNHAP">
+        <PropertyRef Name="MANPP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011275">
+    <End Role="PHIEUXUAT" Type="Self.PHIEUXUAT" Multiplicity="1" />
+    <End Role="CT_PHIEUXUAT" Type="Self.CT_PHIEUXUAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUXUAT">
+        <PropertyRef Name="MAPX" />
+      </Principal>
+      <Dependent Role="CT_PHIEUXUAT">
+        <PropertyRef Name="MAPX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Oracle" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CT_NHAPHANG" EntityType="Self.CT_NHAPHANG" />
+    <EntitySet Name="CHUCVUs" EntityType="Self.CHUCVU" />
+    <EntitySet Name="HANGHOAs" EntityType="Self.HANGHOA" />
+    <EntitySet Name="LOAIHANGHOAs" EntityType="Self.LOAIHANGHOA" />
+    <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+    <EntitySet Name="NHAPHANPHOIs" EntityType="Self.NHAPHANPHOI" />
+    <EntitySet Name="NHASANXUATs" EntityType="Self.NHASANXUAT" />
+    <EntitySet Name="PHIEUNHAPs" EntityType="Self.PHIEUNHAP" />
+    <EntitySet Name="PHIEUXUATs" EntityType="Self.PHIEUXUAT" />
+    <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />
+    <EntitySet Name="CT_PHIEUXUAT" EntityType="Self.CT_PHIEUXUAT" />
+    <EntitySet Name="VIEWCHUCVUs" EntityType="Self.VIEWCHUCVU" />
+    <EntitySet Name="VIEWHANGHOAs" EntityType="Self.VIEWHANGHOA" />
+    <AssociationSet Name="SYS_C0011282" Association="Self.SYS_C0011282">
+      <End Role="PHIEUNHAP" EntitySet="PHIEUNHAPs" />
+      <End Role="CT_NHAPHANG" EntitySet="CT_NHAPHANG" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011283" Association="Self.SYS_C0011283">
+      <End Role="HANGHOA" EntitySet="HANGHOAs" />
+      <End Role="CT_NHAPHANG" EntitySet="CT_NHAPHANG" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011243" Association="Self.SYS_C0011243">
+      <End Role="CHUCVU" EntitySet="CHUCVUs" />
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="HANGHOA_FK1" Association="Self.HANGHOA_FK1">
+      <End Role="NHASANXUAT" EntitySet="NHASANXUATs" />
+      <End Role="HANGHOA" EntitySet="HANGHOAs" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011251" Association="Self.SYS_C0011251">
+      <End Role="LOAIHANGHOA" EntitySet="LOAIHANGHOAs" />
+      <End Role="HANGHOA" EntitySet="HANGHOAs" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011276" Association="Self.SYS_C0011276">
+      <End Role="HANGHOA" EntitySet="HANGHOAs" />
+      <End Role="CT_PHIEUXUAT" EntitySet="CT_PHIEUXUAT" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011256" Association="Self.SYS_C0011256">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011262" Association="Self.SYS_C0011262">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="PHIEUXUAT" EntitySet="PHIEUXUATs" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011269" Association="Self.SYS_C0011269">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="PHIEUNHAP" EntitySet="PHIEUNHAPs" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011270" Association="Self.SYS_C0011270">
+      <End Role="NHAPHANPHOI" EntitySet="NHAPHANPHOIs" />
+      <End Role="PHIEUNHAP" EntitySet="PHIEUNHAPs" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011275" Association="Self.SYS_C0011275">
+      <End Role="PHIEUXUAT" EntitySet="PHIEUXUATs" />
+      <End Role="CT_PHIEUXUAT" EntitySet="CT_PHIEUXUAT" />
+    </AssociationSet>
+    <FunctionImport Name="SUACHUCVU">
+      <Parameter Name="P_MACHUCVU" Mode="In" Type="Decimal" />
+      <Parameter Name="P_TENCHUCVU" Mode="In" Type="String" />
+      <Parameter Name="P_MOTA" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="THEMCHUCVU">
+      <Parameter Name="P_MACHUCVU" Mode="In" Type="Decimal" />
+      <Parameter Name="P_TENCHUCVU" Mode="In" Type="String" />
+      <Parameter Name="P_MOTA" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+</Schema>

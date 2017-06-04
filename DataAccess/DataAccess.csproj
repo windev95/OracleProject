@@ -56,58 +56,58 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\CHUCVU.cs">
-      <DependentUpon>DB.tt</DependentUpon>
+      <DependentUpon>Oracle.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CT_NHAPHANG.cs">
-      <DependentUpon>DB.tt</DependentUpon>
+      <DependentUpon>Oracle.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CT_PHIEUXUAT.cs">
-      <DependentUpon>DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DB.edmx</DependentUpon>
+      <DependentUpon>Oracle.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\HANGHOA.cs">
-      <DependentUpon>DB.tt</DependentUpon>
+      <DependentUpon>Oracle.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LOAIHANGHOA.cs">
-      <DependentUpon>DB.tt</DependentUpon>
+      <DependentUpon>Oracle.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\NHANVIEN.cs">
-      <DependentUpon>DB.tt</DependentUpon>
+      <DependentUpon>Oracle.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\NHAPHANPHOI.cs">
-      <DependentUpon>DB.tt</DependentUpon>
+      <DependentUpon>Oracle.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\NHASANXUAT.cs">
-      <DependentUpon>DB.tt</DependentUpon>
+      <DependentUpon>Oracle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Oracle.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Oracle.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Oracle.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Oracle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Oracle.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Oracle.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\PHIEUNHAP.cs">
-      <DependentUpon>DB.tt</DependentUpon>
+      <DependentUpon>Oracle.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PHIEUXUAT.cs">
-      <DependentUpon>DB.tt</DependentUpon>
+      <DependentUpon>Oracle.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TAIKHOAN.cs">
-      <DependentUpon>DB.tt</DependentUpon>
+      <DependentUpon>Oracle.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\VIEWCHUCVU.cs">
-      <DependentUpon>DB.tt</DependentUpon>
+      <DependentUpon>Oracle.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\VIEWHANGHOA.cs">
-      <DependentUpon>DB.tt</DependentUpon>
+      <DependentUpon>Oracle.tt</DependentUpon>
     </Compile>
     <Compile Include="SanPhamDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,12 +116,12 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="Model\DB.edmx">
+    <EntityDeploy Include="Model\Oracle.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DB.Designer.cs</LastGenOutput>
+      <LastGenOutput>Oracle.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\DB.edmx.diagram">
-      <DependentUpon>DB.edmx</DependentUpon>
+    <None Include="Model\Oracle.edmx.diagram">
+      <DependentUpon>Oracle.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -135,16 +135,17 @@
       <Name>DataTransferObject</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Content Include="Model\DB.Context.tt">
+    <Content Include="Model\Oracle.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB.edmx</DependentUpon>
-      <LastGenOutput>DB.Context.cs</LastGenOutput>
+      <DependentUpon>Oracle.edmx</DependentUpon>
+      <LastGenOutput>Oracle.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\DB.tt">
+    <Content Include="Model\Oracle.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DB.edmx</DependentUpon>
-      <LastGenOutput>DB.cs</LastGenOutput>
+      <DependentUpon>Oracle.edmx</DependentUpon>
+      <LastGenOutput>Oracle.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

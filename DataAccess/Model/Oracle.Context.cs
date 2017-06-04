@@ -13,11 +13,13 @@ namespace DataAccess.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Data.Objects;
-
-    public partial class DB : DbContext
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
+    
+    public partial class Oracle : DbContext
     {
-        public DB()
-            : base("name=DB")
+        public Oracle()
+            : base("name=Oracle")
         {
         }
     

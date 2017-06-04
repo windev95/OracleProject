@@ -1,18 +1,18 @@
-﻿using DataAccess.Model;
-using DataTransferObject;
+﻿using DataTransferObject;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 
 namespace DataAccess
 {
     public class SanPhamDAL
     {
-        private readonly DB db = new DB();
+        private readonly Model.Oracle db = new Model.Oracle();
         private readonly ViewHangHoa hh = new ViewHangHoa();
         public List<ViewHangHoa> ViewHangHoa()
         {
             var list = new List<ViewHangHoa>();
-            foreach(var item in db.VIEWHANGHOAs)
+            foreach(var item in db.VIEWHANGHOAs.ToList())
             {
                 list.Add(new ViewHangHoa
                 {

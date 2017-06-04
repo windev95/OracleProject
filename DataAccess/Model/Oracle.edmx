@@ -656,7 +656,7 @@ FROM "VANDUNG277"."VIEWHANGHOA" "VIEWHANGHOA"</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DB" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Oracle" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CT_NHAPHANG" EntityType="Self.CT_NHAPHANG" />
           <EntitySet Name="CHUCVUs" EntityType="Self.CHUCVU" />
           <EntitySet Name="HANGHOAs" EntityType="Self.HANGHOA" />
@@ -730,7 +730,7 @@ FROM "VANDUNG277"."VIEWHANGHOA" "VIEWHANGHOA"</DefiningQuery>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="DB">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Oracle">
           <EntitySetMapping Name="CT_NHAPHANG">
             <EntityTypeMapping TypeName="Model.CT_NHAPHANG">
               <MappingFragment StoreEntitySet="CT_NHAPHANG">
