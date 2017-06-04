@@ -1,0 +1,1 @@
+C:\Users\dangs\Desktop\SaleManager\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache

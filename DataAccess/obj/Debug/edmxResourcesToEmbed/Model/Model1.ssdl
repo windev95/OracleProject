@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model1.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CT_NHAPHANG">
+    <Key>
+      <PropertyRef Name="MAPN" />
+    </Key>
+    <Property Name="MAPN" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MAHANGHOA" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SOLUONG" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TONGTIEN" Type="number" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'VANDUNG277.CT_PHIEUXUAT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CT_PHIEUXUAT">
+    <Key>
+      <PropertyRef Name="MAPX" />
+      <PropertyRef Name="MAHANGHOA" />
+      <PropertyRef Name="SOLUONG" />
+      <PropertyRef Name="TONGTIEN" />
+    </Key>
+    <Property Name="MAPX" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MAHANGHOA" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SOLUONG" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TONGTIEN" Type="number" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CHUCVU">
+    <Key>
+      <PropertyRef Name="MACHUCVU" />
+    </Key>
+    <Property Name="MACHUCVU" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TENCHUCVU" Type="nvarchar2" MaxLength="20" Nullable="false" />
+    <Property Name="MOTA" Type="nvarchar2" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="HANGHOA">
+    <Key>
+      <PropertyRef Name="MAHANGHOA" />
+    </Key>
+    <Property Name="MAHANGHOA" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TENHANGHOA" Type="nvarchar2" MaxLength="100" Nullable="false" />
+    <Property Name="GIANHAP" Type="number" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="SOLUONGTON" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MOTA" Type="nvarchar2" MaxLength="200" />
+    <Property Name="MANSX" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MALOAIHANG" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LOAIHANGHOA">
+    <Key>
+      <PropertyRef Name="MALOAIHANG" />
+    </Key>
+    <Property Name="MALOAIHANG" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TENLOAIHANG" Type="nvarchar2" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="MANHANVIEN" />
+    </Key>
+    <Property Name="MANHANVIEN" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TENNHANVIEN" Type="nvarchar2" MaxLength="40" Nullable="false" />
+    <Property Name="GIOITINH" Type="number" Precision="1" Scale="0" />
+    <Property Name="NTNS" Type="date" />
+    <Property Name="SODIENTHOAI" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="CMND" Type="varchar2" MaxLength="15" Nullable="false" />
+    <Property Name="EMAIL" Type="varchar2" MaxLength="40" />
+    <Property Name="DIACHI" Type="nvarchar2" MaxLength="100" />
+    <Property Name="MACHUCVU" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NHAPHANPHOI">
+    <Key>
+      <PropertyRef Name="MANPP" />
+    </Key>
+    <Property Name="MANPP" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TENNPP" Type="nvarchar2" MaxLength="100" Nullable="false" />
+    <Property Name="SODIENTHOAI" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="DIACHI" Type="nvarchar2" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="NHASANXUAT">
+    <Key>
+      <PropertyRef Name="MANSX" />
+    </Key>
+    <Property Name="MANSX" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TENNSX" Type="nvarchar2" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PHIEUNHAP">
+    <Key>
+      <PropertyRef Name="MAPN" />
+    </Key>
+    <Property Name="MAPN" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NGAYNHAP" Type="date" Nullable="false" />
+    <Property Name="MANHANVIEN" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MANPP" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TINHTRANG" Type="number" Precision="1" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PHIEUXUAT">
+    <Key>
+      <PropertyRef Name="MAPX" />
+    </Key>
+    <Property Name="MAPX" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NGAYXUATPHIEU" Type="date" Nullable="false" />
+    <Property Name="MANHANVIEN" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TINHTRANG" Type="number" Precision="1" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="TAIKHOAN" />
+    </Key>
+    <Property Name="TAIKHOAN" Type="varchar2" MaxLength="20" Nullable="false" />
+    <Property Name="MATKHAU" Type="varchar2" MaxLength="32" Nullable="false" />
+    <Property Name="MANHANVIEN" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="MAHOA" Type="nvarchar2" MaxLength="32" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'VANDUNG277.VIEWCHUCVU' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VIEWCHUCVU">
+    <Key>
+      <PropertyRef Name="MACHUCVU" />
+      <PropertyRef Name="TENCHUCVU" />
+    </Key>
+    <Property Name="MACHUCVU" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TENCHUCVU" Type="nvarchar2" MaxLength="20" Nullable="false" />
+    <Property Name="MOTA" Type="nvarchar2" MaxLength="100" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'VANDUNG277.VIEWHANGHOA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VIEWHANGHOA">
+    <Key>
+      <PropertyRef Name="MAHANGHOA" />
+      <PropertyRef Name="TENHANGHOA" />
+      <PropertyRef Name="SOLUONGTON" />
+      <PropertyRef Name="GIANHAP" />
+      <PropertyRef Name="TENNSX" />
+    </Key>
+    <Property Name="MAHANGHOA" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="TENHANGHOA" Type="nvarchar2" MaxLength="100" Nullable="false" />
+    <Property Name="MOTA" Type="nvarchar2" MaxLength="200" />
+    <Property Name="SOLUONGTON" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="GIANHAP" Type="number" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TENLOAIHANG" Type="nvarchar2" MaxLength="40" />
+    <Property Name="TENNSX" Type="nvarchar2" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <Association Name="HANGHOA_FK1">
+    <End Role="NHASANXUAT" Type="Self.NHASANXUAT" Multiplicity="1" />
+    <End Role="HANGHOA" Type="Self.HANGHOA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHASANXUAT">
+        <PropertyRef Name="MANSX" />
+      </Principal>
+      <Dependent Role="HANGHOA">
+        <PropertyRef Name="MANSX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011243">
+    <End Role="CHUCVU" Type="Self.CHUCVU" Multiplicity="1" />
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUCVU">
+        <PropertyRef Name="MACHUCVU" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="MACHUCVU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011251">
+    <End Role="LOAIHANGHOA" Type="Self.LOAIHANGHOA" Multiplicity="1" />
+    <End Role="HANGHOA" Type="Self.HANGHOA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIHANGHOA">
+        <PropertyRef Name="MALOAIHANG" />
+      </Principal>
+      <Dependent Role="HANGHOA">
+        <PropertyRef Name="MALOAIHANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011256">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANHANVIEN" />
+      </Principal>
+      <Dependent Role="TAIKHOAN">
+        <PropertyRef Name="MANHANVIEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011262">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="PHIEUXUAT" Type="Self.PHIEUXUAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANHANVIEN" />
+      </Principal>
+      <Dependent Role="PHIEUXUAT">
+        <PropertyRef Name="MANHANVIEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011269">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+    <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="MANHANVIEN" />
+      </Principal>
+      <Dependent Role="PHIEUNHAP">
+        <PropertyRef Name="MANHANVIEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011270">
+    <End Role="NHAPHANPHOI" Type="Self.NHAPHANPHOI" Multiplicity="1" />
+    <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHAPHANPHOI">
+        <PropertyRef Name="MANPP" />
+      </Principal>
+      <Dependent Role="PHIEUNHAP">
+        <PropertyRef Name="MANPP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011275">
+    <End Role="PHIEUXUAT" Type="Self.PHIEUXUAT" Multiplicity="1" />
+    <End Role="CT_PHIEUXUAT" Type="Self.CT_PHIEUXUAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUXUAT">
+        <PropertyRef Name="MAPX" />
+      </Principal>
+      <Dependent Role="CT_PHIEUXUAT">
+        <PropertyRef Name="MAPX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011276">
+    <End Role="HANGHOA" Type="Self.HANGHOA" Multiplicity="1" />
+    <End Role="CT_PHIEUXUAT" Type="Self.CT_PHIEUXUAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANGHOA">
+        <PropertyRef Name="MAHANGHOA" />
+      </Principal>
+      <Dependent Role="CT_PHIEUXUAT">
+        <PropertyRef Name="MAHANGHOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011282">
+    <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="1" />
+    <End Role="CT_NHAPHANG" Type="Self.CT_NHAPHANG" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUNHAP">
+        <PropertyRef Name="MAPN" />
+      </Principal>
+      <Dependent Role="CT_NHAPHANG">
+        <PropertyRef Name="MAPN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SYS_C0011283">
+    <End Role="HANGHOA" Type="Self.HANGHOA" Multiplicity="1" />
+    <End Role="CT_NHAPHANG" Type="Self.CT_NHAPHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANGHOA">
+        <PropertyRef Name="MAHANGHOA" />
+      </Principal>
+      <Dependent Role="CT_NHAPHANG">
+        <PropertyRef Name="MAHANGHOA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="SUACHUCVU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="VANDUNG277">
+    <Parameter Name="P_MACHUCVU" Type="number" Mode="In" />
+    <Parameter Name="P_TENCHUCVU" Type="nvarchar2" Mode="In" />
+    <Parameter Name="P_MOTA" Type="nvarchar2" Mode="In" />
+  </Function>
+  <Function Name="THEMCHUCVU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="VANDUNG277">
+    <Parameter Name="P_MACHUCVU" Type="number" Mode="In" />
+    <Parameter Name="P_TENCHUCVU" Type="nvarchar2" Mode="In" />
+    <Parameter Name="P_MOTA" Type="nvarchar2" Mode="In" />
+  </Function>
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="CT_NHAPHANG" EntityType="Self.CT_NHAPHANG" Schema="VANDUNG277" store:Type="Tables" />
+    <EntitySet Name="CHUCVU" EntityType="Self.CHUCVU" Schema="VANDUNG277" store:Type="Tables" />
+    <EntitySet Name="HANGHOA" EntityType="Self.HANGHOA" Schema="VANDUNG277" store:Type="Tables" />
+    <EntitySet Name="LOAIHANGHOA" EntityType="Self.LOAIHANGHOA" Schema="VANDUNG277" store:Type="Tables" />
+    <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="VANDUNG277" store:Type="Tables" />
+    <EntitySet Name="NHAPHANPHOI" EntityType="Self.NHAPHANPHOI" Schema="VANDUNG277" store:Type="Tables" />
+    <EntitySet Name="NHASANXUAT" EntityType="Self.NHASANXUAT" Schema="VANDUNG277" store:Type="Tables" />
+    <EntitySet Name="PHIEUNHAP" EntityType="Self.PHIEUNHAP" Schema="VANDUNG277" store:Type="Tables" />
+    <EntitySet Name="PHIEUXUAT" EntityType="Self.PHIEUXUAT" Schema="VANDUNG277" store:Type="Tables" />
+    <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="VANDUNG277" store:Type="Tables" />
+    <EntitySet Name="CT_PHIEUXUAT" EntityType="Self.CT_PHIEUXUAT" store:Type="Tables" store:Schema="VANDUNG277">
+      <DefiningQuery>SELECT 
+"CT_PHIEUXUAT"."MAPX" AS "MAPX", 
+"CT_PHIEUXUAT"."MAHANGHOA" AS "MAHANGHOA", 
+"CT_PHIEUXUAT"."SOLUONG" AS "SOLUONG", 
+"CT_PHIEUXUAT"."TONGTIEN" AS "TONGTIEN"
+FROM "VANDUNG277"."CT_PHIEUXUAT" "CT_PHIEUXUAT"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VIEWCHUCVU" EntityType="Self.VIEWCHUCVU" store:Type="Views" store:Schema="VANDUNG277">
+      <DefiningQuery>SELECT 
+"VIEWCHUCVU"."MACHUCVU" AS "MACHUCVU", 
+"VIEWCHUCVU"."TENCHUCVU" AS "TENCHUCVU", 
+"VIEWCHUCVU"."MOTA" AS "MOTA"
+FROM "VANDUNG277"."VIEWCHUCVU" "VIEWCHUCVU"</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VIEWHANGHOA" EntityType="Self.VIEWHANGHOA" store:Type="Views" store:Schema="VANDUNG277">
+      <DefiningQuery>SELECT 
+"VIEWHANGHOA"."MAHANGHOA" AS "MAHANGHOA", 
+"VIEWHANGHOA"."TENHANGHOA" AS "TENHANGHOA", 
+"VIEWHANGHOA"."MOTA" AS "MOTA", 
+"VIEWHANGHOA"."SOLUONGTON" AS "SOLUONGTON", 
+"VIEWHANGHOA"."GIANHAP" AS "GIANHAP", 
+"VIEWHANGHOA"."TENLOAIHANG" AS "TENLOAIHANG", 
+"VIEWHANGHOA"."TENNSX" AS "TENNSX"
+FROM "VANDUNG277"."VIEWHANGHOA" "VIEWHANGHOA"</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="HANGHOA_FK1" Association="Self.HANGHOA_FK1">
+      <End Role="NHASANXUAT" EntitySet="NHASANXUAT" />
+      <End Role="HANGHOA" EntitySet="HANGHOA" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011243" Association="Self.SYS_C0011243">
+      <End Role="CHUCVU" EntitySet="CHUCVU" />
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011251" Association="Self.SYS_C0011251">
+      <End Role="LOAIHANGHOA" EntitySet="LOAIHANGHOA" />
+      <End Role="HANGHOA" EntitySet="HANGHOA" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011256" Association="Self.SYS_C0011256">
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+      <End Role="TAIKHOAN" EntitySet="TAIKHOAN" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011262" Association="Self.SYS_C0011262">
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+      <End Role="PHIEUXUAT" EntitySet="PHIEUXUAT" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011269" Association="Self.SYS_C0011269">
+      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+      <End Role="PHIEUNHAP" EntitySet="PHIEUNHAP" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011270" Association="Self.SYS_C0011270">
+      <End Role="NHAPHANPHOI" EntitySet="NHAPHANPHOI" />
+      <End Role="PHIEUNHAP" EntitySet="PHIEUNHAP" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011275" Association="Self.SYS_C0011275">
+      <End Role="PHIEUXUAT" EntitySet="PHIEUXUAT" />
+      <End Role="CT_PHIEUXUAT" EntitySet="CT_PHIEUXUAT" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011276" Association="Self.SYS_C0011276">
+      <End Role="HANGHOA" EntitySet="HANGHOA" />
+      <End Role="CT_PHIEUXUAT" EntitySet="CT_PHIEUXUAT" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011282" Association="Self.SYS_C0011282">
+      <End Role="PHIEUNHAP" EntitySet="PHIEUNHAP" />
+      <End Role="CT_NHAPHANG" EntitySet="CT_NHAPHANG" />
+    </AssociationSet>
+    <AssociationSet Name="SYS_C0011283" Association="Self.SYS_C0011283">
+      <End Role="HANGHOA" EntitySet="HANGHOA" />
+      <End Role="CT_NHAPHANG" EntitySet="CT_NHAPHANG" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

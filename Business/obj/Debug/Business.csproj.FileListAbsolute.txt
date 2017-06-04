@@ -1,0 +1,5 @@
+C:\Users\dangs\Desktop\SaleManager\Business\bin\Debug\Business.dll
+C:\Users\dangs\Desktop\SaleManager\Business\bin\Debug\Business.pdb
+C:\Users\dangs\Desktop\SaleManager\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
+C:\Users\dangs\Desktop\SaleManager\Business\obj\Debug\Business.dll
+C:\Users\dangs\Desktop\SaleManager\Business\obj\Debug\Business.pdb

@@ -1,0 +1,10 @@
+C:\Users\dangs\Desktop\SaleManager\SaleManager\obj\Debug\SaleManager.csprojResolveAssemblyReference.cache
+C:\Users\dangs\Desktop\SaleManager\SaleManager\obj\Debug\SaleManager.Home.resources
+C:\Users\dangs\Desktop\SaleManager\SaleManager\obj\Debug\SaleManager.Man_Hinh_Loading.ManHinhKhoiDong.resources
+C:\Users\dangs\Desktop\SaleManager\SaleManager\obj\Debug\SaleManager.Man_Hinh_Loading.ManHinhLoading.resources
+C:\Users\dangs\Desktop\SaleManager\SaleManager\obj\Debug\SaleManager.Properties.Resources.resources
+C:\Users\dangs\Desktop\SaleManager\SaleManager\obj\Debug\SaleManager.San_Pham.UCLoaiSanPham.resources
+C:\Users\dangs\Desktop\SaleManager\SaleManager\obj\Debug\SaleManager.San_Pham.UCSanPham.resources
+C:\Users\dangs\Desktop\SaleManager\SaleManager\obj\Debug\SaleManager.csproj.GenerateResource.Cache
+C:\Users\dangs\Desktop\SaleManager\SaleManager\obj\Debug\SaleManager.exe.licenses
+C:\Users\BoyIt\Desktop\OracleProject\SaleManager\bin\Debug\SaleManager.exe.config
