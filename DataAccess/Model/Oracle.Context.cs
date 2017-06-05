@@ -41,6 +41,8 @@ namespace DataAccess.Model
         public DbSet<CT_PHIEUXUAT> CT_PHIEUXUAT { get; set; }
         public DbSet<VIEWCHUCVU> VIEWCHUCVUs { get; set; }
         public DbSet<VIEWHANGHOA> VIEWHANGHOAs { get; set; }
+        public DbSet<VIEWLOAIHANG> VIEWLOAIHANGs { get; set; }
+        public DbSet<VIEWNHASANXUAT> VIEWNHASANXUATs { get; set; }
     
         public virtual int SUACHUCVU(Nullable<decimal> p_MACHUCVU, string p_TENCHUCVU, string p_MOTA)
         {

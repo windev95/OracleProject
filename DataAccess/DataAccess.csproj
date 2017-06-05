@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoaiHangHoaDAL.cs" />
     <Compile Include="Model\CHUCVU.cs">
       <DependentUpon>Oracle.tt</DependentUpon>
     </Compile>
@@ -109,6 +110,13 @@
     <Compile Include="Model\VIEWHANGHOA.cs">
       <DependentUpon>Oracle.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\VIEWLOAIHANG.cs">
+      <DependentUpon>Oracle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\VIEWNHASANXUAT.cs">
+      <DependentUpon>Oracle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NhaSanXuatDAL.cs" />
     <Compile Include="SanPhamDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

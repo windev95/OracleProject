@@ -8,28 +8,18 @@ namespace DataAccess
     public class SanPhamDAL
     {
         private readonly Model.Oracle db = new Model.Oracle();
-        private readonly ViewHangHoa hh = new ViewHangHoa();
-        public List<ViewHangHoa> ViewHangHoa()
+        public List<HangHoa> ViewHangHoa()
         {
-            var list = new List<ViewHangHoa>();
-            foreach(var item in db.VIEWHANGHOAs.ToList())
+            return db.VIEWHANGHOAs.Select(item => new HangHoa
             {
-                list.Add(new ViewHangHoa
-                {
-                    MAHANGHOA = item.MAHANGHOA,
-                    TENHANGHOA = item.TENHANGHOA,
-                    MOTA = item.MOTA,
-                    GIANHAP = item.GIANHAP,
-                    SOLUONGTON = item.SOLUONGTON,
-                    TENLOAIHANG = item.TENLOAIHANG,
-                    TENNSX = item.TENNSX
-                });
-            }
-            return list;
+                MAHANGHOA = item.MAHANGHOA,
+                TENHANGHOA = item.TENHANGHOA,
+                MOTA = item.MOTA,
+                GIANHAP = item.GIANHAP,
+                SOLUONGTON = item.SOLUONGTON,
+                TENLOAIHANG = item.TENLOAIHANG,
+                TENNSX = item.TENNSX
+            }).ToList();
         }        
-        public DbSet ViewDemo()
-        {
-            return db.VIEWHANGHOAs;
-        }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CT_NHAPHANG">
           <Key>
             <PropertyRef Name="MAPN" />
@@ -140,6 +140,25 @@ warning 6002: The table/view 'VANDUNG277.VIEWHANGHOA' does not have a primary ke
           <Property Name="SOLUONGTON" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="GIANHAP" Type="number" Precision="18" Scale="0" Nullable="false" />
           <Property Name="TENLOAIHANG" Type="nvarchar2" MaxLength="40" />
+          <Property Name="TENNSX" Type="nvarchar2" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'VANDUNG277.VIEWLOAIHANG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VIEWLOAIHANG">
+          <Key>
+            <PropertyRef Name="MALOAIHANG" />
+          </Key>
+          <Property Name="MALOAIHANG" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TENLOAIHANG" Type="nvarchar2" MaxLength="40" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'VANDUNG277.VIEWNHASANXUAT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VIEWNHASANXUAT">
+          <Key>
+            <PropertyRef Name="MANSX" />
+            <PropertyRef Name="TENNSX" />
+          </Key>
+          <Property Name="MANSX" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="TENNSX" Type="nvarchar2" MaxLength="40" Nullable="false" />
         </EntityType>
         <Association Name="HANGHOA_FK1">
@@ -321,6 +340,18 @@ FROM "VANDUNG277"."VIEWCHUCVU" "VIEWCHUCVU"</DefiningQuery>
 "VIEWHANGHOA"."TENNSX" AS "TENNSX"
 FROM "VANDUNG277"."VIEWHANGHOA" "VIEWHANGHOA"</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VIEWLOAIHANG" EntityType="Self.VIEWLOAIHANG" store:Type="Views" store:Schema="VANDUNG277">
+            <DefiningQuery>SELECT 
+"VIEWLOAIHANG"."MALOAIHANG" AS "MALOAIHANG", 
+"VIEWLOAIHANG"."TENLOAIHANG" AS "TENLOAIHANG"
+FROM "VANDUNG277"."VIEWLOAIHANG" "VIEWLOAIHANG"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VIEWNHASANXUAT" EntityType="Self.VIEWNHASANXUAT" store:Type="Views" store:Schema="VANDUNG277">
+            <DefiningQuery>SELECT 
+"VIEWNHASANXUAT"."MANSX" AS "MANSX", 
+"VIEWNHASANXUAT"."TENNSX" AS "TENNSX"
+FROM "VANDUNG277"."VIEWNHASANXUAT" "VIEWNHASANXUAT"</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="HANGHOA_FK1" Association="Self.HANGHOA_FK1">
             <End Role="NHASANXUAT" EntitySet="NHASANXUAT" />
             <End Role="HANGHOA" EntitySet="HANGHOA" />
@@ -366,8 +397,7 @@ FROM "VANDUNG277"."VIEWHANGHOA" "VIEWHANGHOA"</DefiningQuery>
             <End Role="CT_NHAPHANG" EntitySet="CT_NHAPHANG" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -724,7 +754,24 @@ FROM "VANDUNG277"."VIEWHANGHOA" "VIEWHANGHOA"</DefiningQuery>
             <Parameter Name="P_TENCHUCVU" Mode="In" Type="String" />
             <Parameter Name="P_MOTA" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="VIEWLOAIHANGs" EntityType="Model.VIEWLOAIHANG" />
+          <EntitySet Name="VIEWNHASANXUATs" EntityType="Model.VIEWNHASANXUAT" />
         </EntityContainer>
+        <EntityType Name="VIEWLOAIHANG">
+          <Key>
+            <PropertyRef Name="MALOAIHANG" />
+          </Key>
+          <Property Name="MALOAIHANG" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="TENLOAIHANG" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VIEWNHASANXUAT">
+          <Key>
+            <PropertyRef Name="MANSX" />
+            <PropertyRef Name="TENNSX" />
+          </Key>
+          <Property Name="MANSX" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="TENNSX" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -869,6 +916,22 @@ FROM "VANDUNG277"."VIEWHANGHOA" "VIEWHANGHOA"</DefiningQuery>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="SUACHUCVU" FunctionName="Model.Store.SUACHUCVU" />
           <FunctionImportMapping FunctionImportName="THEMCHUCVU" FunctionName="Model.Store.THEMCHUCVU" />
+          <EntitySetMapping Name="VIEWLOAIHANGs">
+            <EntityTypeMapping TypeName="Model.VIEWLOAIHANG">
+              <MappingFragment StoreEntitySet="VIEWLOAIHANG">
+                <ScalarProperty Name="TENLOAIHANG" ColumnName="TENLOAIHANG" />
+                <ScalarProperty Name="MALOAIHANG" ColumnName="MALOAIHANG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VIEWNHASANXUATs">
+            <EntityTypeMapping TypeName="Model.VIEWNHASANXUAT">
+              <MappingFragment StoreEntitySet="VIEWNHASANXUAT">
+                <ScalarProperty Name="TENNSX" ColumnName="TENNSX" />
+                <ScalarProperty Name="MANSX" ColumnName="MANSX" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
