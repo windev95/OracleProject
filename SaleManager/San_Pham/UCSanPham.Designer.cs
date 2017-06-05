@@ -28,12 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCSanPham));
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCSanPham));
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.MAHANGHOA = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -97,6 +94,7 @@
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView});
             this.gridControl.Load += new System.EventHandler(this.gridControl_Load);
+            this.gridControl.Click += new System.EventHandler(this.gridControl_Click);
             // 
             // gridView
             // 
@@ -114,10 +112,11 @@
             this.gridView.GridControl = this.gridControl;
             this.gridView.Name = "gridView";
             this.gridView.OptionsBehavior.AllowIncrementalSearch = true;
-            this.gridView.OptionsBehavior.Editable = false;
+            this.gridView.OptionsBehavior.ReadOnly = true;
             this.gridView.OptionsCustomization.CustomizationFormSearchBoxVisible = true;
             this.gridView.OptionsDetail.DetailMode = DevExpress.XtraGrid.Views.Grid.DetailMode.Default;
             this.gridView.OptionsFind.AlwaysVisible = true;
+            this.gridView.OptionsView.AllowHtmlDrawHeaders = true;
             this.gridView.OptionsView.ShowDetailButtons = false;
             this.gridView.OptionsView.ShowGroupPanel = false;
             // 
@@ -125,7 +124,10 @@
             // 
             this.MAHANGHOA.Caption = "Mã Sản Phẩm";
             this.MAHANGHOA.FieldName = "MAHANGHOA";
+            this.MAHANGHOA.ImageAlignment = System.Drawing.StringAlignment.Center;
             this.MAHANGHOA.Name = "MAHANGHOA";
+            this.MAHANGHOA.OptionsColumn.AllowEdit = false;
+            this.MAHANGHOA.OptionsColumn.ReadOnly = true;
             this.MAHANGHOA.Visible = true;
             this.MAHANGHOA.VisibleIndex = 0;
             // 
@@ -134,6 +136,8 @@
             this.TENHANGHOA.Caption = "Tên Sản Phẩm";
             this.TENHANGHOA.FieldName = "TENHANGHOA";
             this.TENHANGHOA.Name = "TENHANGHOA";
+            this.TENHANGHOA.OptionsColumn.AllowEdit = false;
+            this.TENHANGHOA.OptionsColumn.ReadOnly = true;
             this.TENHANGHOA.Visible = true;
             this.TENHANGHOA.VisibleIndex = 1;
             // 
@@ -142,6 +146,8 @@
             this.MOTA.Caption = "Mô Tả";
             this.MOTA.FieldName = "MOTA";
             this.MOTA.Name = "MOTA";
+            this.MOTA.OptionsColumn.AllowEdit = false;
+            this.MOTA.OptionsColumn.ReadOnly = true;
             this.MOTA.Visible = true;
             this.MOTA.VisibleIndex = 2;
             // 
@@ -150,6 +156,8 @@
             this.SOLUONGTON.Caption = "Số Lượng Tồn";
             this.SOLUONGTON.FieldName = "SOLUONGTON";
             this.SOLUONGTON.Name = "SOLUONGTON";
+            this.SOLUONGTON.OptionsColumn.AllowEdit = false;
+            this.SOLUONGTON.OptionsColumn.ReadOnly = true;
             this.SOLUONGTON.Visible = true;
             this.SOLUONGTON.VisibleIndex = 3;
             // 
@@ -158,6 +166,8 @@
             this.GIANHAP.Caption = "Gía Nhập";
             this.GIANHAP.FieldName = "GIANHAP";
             this.GIANHAP.Name = "GIANHAP";
+            this.GIANHAP.OptionsColumn.AllowEdit = false;
+            this.GIANHAP.OptionsColumn.ReadOnly = true;
             this.GIANHAP.Visible = true;
             this.GIANHAP.VisibleIndex = 4;
             // 
@@ -166,6 +176,8 @@
             this.TENLOAIHANG.Caption = "Loại Hàng Hóa";
             this.TENLOAIHANG.FieldName = "TENLOAIHANG";
             this.TENLOAIHANG.Name = "TENLOAIHANG";
+            this.TENLOAIHANG.OptionsColumn.AllowEdit = false;
+            this.TENLOAIHANG.OptionsColumn.ReadOnly = true;
             this.TENLOAIHANG.Visible = true;
             this.TENLOAIHANG.VisibleIndex = 5;
             // 
@@ -174,6 +186,8 @@
             this.TENNSX.Caption = "Nhà Sản Xuất";
             this.TENNSX.FieldName = "TENNSX";
             this.TENNSX.Name = "TENNSX";
+            this.TENNSX.OptionsColumn.AllowEdit = false;
+            this.TENNSX.OptionsColumn.ReadOnly = true;
             this.TENNSX.Visible = true;
             this.TENNSX.VisibleIndex = 6;
             // 
@@ -181,31 +195,47 @@
             // 
             this.SUA.Caption = "Sửa";
             this.SUA.ColumnEdit = this.btnSua;
+            this.SUA.FieldName = "btnSua";
+            this.SUA.ImageAlignment = System.Drawing.StringAlignment.Center;
             this.SUA.Name = "SUA";
+            this.SUA.OptionsColumn.ReadOnly = true;
             this.SUA.Visible = true;
             this.SUA.VisibleIndex = 7;
             // 
             // btnSua
             // 
+            this.btnSua.AppearanceReadOnly.Image = global::SaleManager.Properties.Resources.edit;
+            this.btnSua.AppearanceReadOnly.Options.UseImage = true;
             this.btnSua.AutoHeight = false;
             this.btnSua.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.BottomCenter, ((System.Drawing.Image)(resources.GetObject("btnSua.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.BottomCenter, global::SaleManager.Properties.Resources.edit, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.btnSua.Name = "btnSua";
+            this.btnSua.ReadOnly = true;
+            this.btnSua.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnSua.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnSua_ButtonClick);
             // 
             // XOA
             // 
             this.XOA.Caption = "Xóa";
             this.XOA.ColumnEdit = this.btnXoa;
+            this.XOA.FieldName = "btnXoa";
+            this.XOA.ImageAlignment = System.Drawing.StringAlignment.Center;
             this.XOA.Name = "XOA";
+            this.XOA.OptionsColumn.ReadOnly = true;
             this.XOA.Visible = true;
             this.XOA.VisibleIndex = 8;
             // 
             // btnXoa
             // 
+            this.btnXoa.AppearanceReadOnly.Image = global::SaleManager.Properties.Resources.delete;
+            this.btnXoa.AppearanceReadOnly.Options.UseImage = true;
             this.btnXoa.AutoHeight = false;
             this.btnXoa.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.BottomCenter, ((System.Drawing.Image)(resources.GetObject("btnXoa.Buttons"))), "Cancel", new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::SaleManager.Properties.Resources.delete, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.btnXoa.Name = "btnXoa";
+            this.btnXoa.ReadOnly = true;
+            this.btnXoa.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnXoa.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnXoa_ButtonClick);
             // 
             // groupBox1
             // 
@@ -365,17 +395,19 @@
             this.btnHuy.Size = new System.Drawing.Size(85, 34);
             this.btnHuy.TabIndex = 9;
             this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnThem
             // 
             this.btnThem.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnThem.Appearance.Options.UseFont = true;
-            this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
+            this.btnThem.Image = global::SaleManager.Properties.Resources.add2;
             this.btnThem.Location = new System.Drawing.Point(6, 12);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(85, 34);
             this.btnThem.TabIndex = 7;
             this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnLuu
             // 
@@ -387,6 +419,7 @@
             this.btnLuu.Size = new System.Drawing.Size(85, 34);
             this.btnLuu.TabIndex = 8;
             this.btnLuu.Text = "Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // UCSanPham
             // 
@@ -447,8 +480,8 @@
         private DevExpress.XtraEditors.SimpleButton btnHuy;
         private DevExpress.XtraEditors.SimpleButton btnThem;
         private DevExpress.XtraEditors.SimpleButton btnLuu;
-        internal DevExpress.XtraGrid.Columns.GridColumn SUA;
         internal DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnSua;
-        internal DevExpress.XtraGrid.Columns.GridColumn XOA;
+        private DevExpress.XtraGrid.Columns.GridColumn SUA;
+        private DevExpress.XtraGrid.Columns.GridColumn XOA;
     }
 }

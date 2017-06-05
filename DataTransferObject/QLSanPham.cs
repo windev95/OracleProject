@@ -1,6 +1,6 @@
 ﻿namespace DataTransferObject
 {
-    public class ViewHangHoa
+    public class HangHoa
     {
         public decimal MAHANGHOA { get; set; }
         public string TENHANGHOA { get; set; }
