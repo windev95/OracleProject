@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="LoaiHangHoa.cs" />
     <Compile Include="NhaSanXuat.cs" />
-    <Compile Include="QLSanPham.cs" />
+    <Compile Include="HangHoa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

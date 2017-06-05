@@ -1,6 +1,5 @@
 ﻿using DataTransferObject;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 
 namespace DataAccess
@@ -21,9 +20,19 @@ namespace DataAccess
                 TENNSX = item.TENNSX
             }).ToList();
         }        
-        public bool ThemHangHoa(string tenHangHoa, string moTa, decimal soLuongTon, decimal giaNhap, decimal nsx, decimal loaiHang)
+        public bool ThemHangHoa(HangHoa hangHoa)
         {
-            db.THEMHANGHOA(tenHangHoa, moTa, soLuongTon, giaNhap, nsx, loaiHang);
+            var item = db.THEMHANGHOA(hangHoa.TENHANGHOA, hangHoa.MOTA, hangHoa.SOLUONGTON, hangHoa.GIANHAP, hangHoa.MANSX, hangHoa.MALOAIHANG);
+            return true;
+        }
+        public bool SuaHangHoa(HangHoa hangHoa)
+        {
+            var item = db.SUAHANGHOA(hangHoa.MAHANGHOA, hangHoa.TENHANGHOA, hangHoa.MOTA, hangHoa.SOLUONGTON, hangHoa.GIANHAP, hangHoa.MANSX, hangHoa.MALOAIHANG);
+            return true;
+        }
+        public bool XoaHangHoa(decimal maHangHoa)
+        {
+            var item = db.XOAHANGHOA(maHangHoa);
             return true;
         }
     }

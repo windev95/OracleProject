@@ -1,16 +1,19 @@
 ﻿using DevExpress.XtraEditors;
 using Business;
 using DevExpress.XtraEditors.Controls;
+using DataTransferObject;
+using System.Windows.Forms;
 
 namespace SaleManager.San_Pham
 {
     public partial class UCSanPham : XtraUserControl
     {
         #region Khai báo biến
-        private readonly SanPhamBUS _sanPham = new SanPhamBUS();
+        private readonly SanPhamBUS _hangHoa = new SanPhamBUS();
         private readonly NhaSanXuatBUS _nsx = new NhaSanXuatBUS();
         private readonly LoaiHangHoaBUS _loaiHang = new LoaiHangHoaBUS();
         private bool _loaiLuu;
+        private decimal _maHangHoa;
         #endregion
 
         #region Load From
@@ -29,7 +32,7 @@ namespace SaleManager.San_Pham
 
         private void gridControl_Load(object sender, System.EventArgs e)
         {
-            gridControl.DataSource = _sanPham.ViewHangHoa();
+            gridControl.DataSource = _hangHoa.ViewHangHoa();
         }
         private void LoadNhaSanXuat()
         {
@@ -46,6 +49,7 @@ namespace SaleManager.San_Pham
         private void LoadThongTinHangHoa()
         {
             ClearText();
+            if (MAHANGHOA != null) _maHangHoa = decimal.Parse(gridView.GetFocusedRowCellDisplayText(MAHANGHOA));
             if (TENLOAIHANG != null) luLoaiHangHoa.EditValue = luLoaiHangHoa.Properties.GetKeyValueByDisplayText(gridView.GetFocusedRowCellDisplayText(TENLOAIHANG));
             if (TENNSX != null) luNhaSanXuat.EditValue = luNhaSanXuat.Properties.GetKeyValueByDisplayText(gridView.GetFocusedRowCellDisplayText(TENNSX));
             if (TENHANGHOA != null) txtTenSanPham.Text = gridView.GetFocusedRowCellDisplayText(TENHANGHOA);
@@ -66,25 +70,28 @@ namespace SaleManager.San_Pham
         private void btnSua_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             _loaiLuu = false;
-            SetButton(true);
-            SetText(true);
+            SetButton(false);
+            SetText(false);
             LoadThongTinHangHoa();            
         }
         private void btnLuu_Click(object sender, System.EventArgs e)
         {
-            var tenHangHoa = txtTenSanPham.Text;
-            var moTa = txtMoTa.Text;
-            var soLuongTon = decimal.Parse(txtSoLuongTon.Text);
-            var giaNhap = decimal.Parse(txtGiaNhap.Text);
-            var nsx = decimal.Parse(luNhaSanXuat.EditValue.ToString());
-            var loaiHang = decimal.Parse(luLoaiHangHoa.EditValue.ToString());
+            var hangHoa = new HangHoa {
+                MAHANGHOA = _maHangHoa,
+                TENHANGHOA = txtTenSanPham.Text,
+                MOTA = txtMoTa.Text,
+                SOLUONGTON = decimal.Parse(txtSoLuongTon.Text),
+                GIANHAP = long.Parse(txtGiaNhap.Text),
+                MANSX = decimal.Parse(luNhaSanXuat.EditValue.ToString()),
+                MALOAIHANG = decimal.Parse(luLoaiHangHoa.EditValue.ToString())
+            };
             if (_loaiLuu)
             {
-                _sanPham.ThemHangHoa(tenHangHoa, moTa, soLuongTon, giaNhap, nsx, loaiHang);
+                _hangHoa.ThemHangHoa(hangHoa);
             }
-            else
+            else if(!_loaiLuu)
             {
-
+                _hangHoa.SuaHangHoa(hangHoa);
             }
             SetButton(true);
             SetText(true);
@@ -93,11 +100,34 @@ namespace SaleManager.San_Pham
         }
         private void btnXoa_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            XtraMessageBox.Show("Xóa");
+            var maHangHoa = gridView.GetFocusedRowCellDisplayText(MAHANGHOA);
+            var tenHangHoa = gridView.GetFocusedRowCellDisplayText(TENHANGHOA);
+            var tenNSX = gridView.GetFocusedRowCellDisplayText(TENNSX);
+            var tenLoaiHang = gridView.GetFocusedRowCellDisplayText(TENLOAIHANG);
+            var dialog = XtraMessageBox.Show($"Hàng Hóa: {tenHangHoa}" + $"\nLoại Hàng: {tenLoaiHang}" + $"\nNhà Sản Xuất: {tenNSX}",
+                    "XÓA HÀNG HÓA - #" + maHangHoa, MessageBoxButtons.YesNo);
+            try
+            {
+                if (dialog == DialogResult.Yes)
+                {
+                    _hangHoa.XoaHangHoa(int.Parse(maHangHoa));
+                }
+            }
+            catch
+            {
+                XtraMessageBox.Show("Lỗi xóa!");
+            }
+            SetButton(true);
+            SetText(true);
+            ClearText();
+            gridControl_Load(sender, e);
         }
         private void btnHuy_Click(object sender, System.EventArgs e)
         {
-            XtraMessageBox.Show("Hủy");
+            SetButton(true);
+            SetText(true);
+            ClearText();
+            gridControl_Load(sender, e);
         }
         private void gridControl_Click(object sender, System.EventArgs e)
         {
@@ -136,8 +166,8 @@ namespace SaleManager.San_Pham
             txtSoLuongTon.Text = "";
             txtMoTa.Text = "";
             txtGiaNhap.Text = "";
-            //luLoaiHangHoa.EditValue = null;
-            //luNhaSanXuat.EditValue = null;
+            luLoaiHangHoa.EditValue = null;
+            luNhaSanXuat.EditValue = null;
         }
         #endregion
     }

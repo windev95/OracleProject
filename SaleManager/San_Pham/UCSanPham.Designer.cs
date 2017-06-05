@@ -262,7 +262,7 @@
             this.txtGiaNhap.Location = new System.Drawing.Point(123, 75);
             this.txtGiaNhap.Name = "txtGiaNhap";
             this.txtGiaNhap.Size = new System.Drawing.Size(342, 20);
-            this.txtGiaNhap.TabIndex = 80;
+            this.txtGiaNhap.TabIndex = 3;
             // 
             // labelControl6
             // 
@@ -281,7 +281,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.luLoaiHangHoa.Properties.NullText = "Vui Lòng Chọn Loại Hàng Hóa";
             this.luLoaiHangHoa.Size = new System.Drawing.Size(342, 20);
-            this.luLoaiHangHoa.TabIndex = 78;
+            this.luLoaiHangHoa.TabIndex = 4;
             // 
             // labelControl4
             // 
@@ -300,7 +300,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.luNhaSanXuat.Properties.NullText = "Vui Lòng Chọn Nhà Sản Xuất";
             this.luNhaSanXuat.Size = new System.Drawing.Size(342, 20);
-            this.luNhaSanXuat.TabIndex = 76;
+            this.luNhaSanXuat.TabIndex = 5;
             // 
             // labelControl3
             // 
@@ -316,7 +316,7 @@
             this.txtSoLuongTon.Location = new System.Drawing.Point(123, 49);
             this.txtSoLuongTon.Name = "txtSoLuongTon";
             this.txtSoLuongTon.Size = new System.Drawing.Size(342, 20);
-            this.txtSoLuongTon.TabIndex = 72;
+            this.txtSoLuongTon.TabIndex = 2;
             // 
             // labelControl2
             // 
@@ -332,7 +332,7 @@
             this.txtTenSanPham.Location = new System.Drawing.Point(123, 23);
             this.txtTenSanPham.Name = "txtTenSanPham";
             this.txtTenSanPham.Size = new System.Drawing.Size(342, 20);
-            this.txtTenSanPham.TabIndex = 70;
+            this.txtTenSanPham.TabIndex = 1;
             // 
             // labelControl1
             // 
@@ -372,7 +372,7 @@
             this.txtMoTa.Location = new System.Drawing.Point(86, 20);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Size = new System.Drawing.Size(391, 72);
-            this.txtMoTa.TabIndex = 68;
+            this.txtMoTa.TabIndex = 6;
             // 
             // gbTuyChon
             // 
@@ -393,7 +393,7 @@
             this.btnHuy.Location = new System.Drawing.Point(188, 12);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(85, 34);
-            this.btnHuy.TabIndex = 9;
+            this.btnHuy.TabIndex = 8;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
@@ -417,7 +417,7 @@
             this.btnLuu.Location = new System.Drawing.Point(97, 12);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(85, 34);
-            this.btnLuu.TabIndex = 8;
+            this.btnLuu.TabIndex = 7;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 

@@ -6,14 +6,22 @@ namespace Business
 {
     public class SanPhamBUS
     {
-        readonly SanPhamDAL _sanPham = new SanPhamDAL();
+        readonly SanPhamDAL _hangHoa = new SanPhamDAL();
         public List<HangHoa> ViewHangHoa()
         {
-            return _sanPham.ViewHangHoa();
+            return _hangHoa.ViewHangHoa();
         }
-        public void ThemHangHoa(string tenHangHoa, string moTa, decimal soLuongTon, decimal giaNhap, decimal nsx, decimal loaiHang)
+        public void ThemHangHoa(HangHoa hangHoa)
         {
-            _sanPham.ThemHangHoa(tenHangHoa, moTa, soLuongTon, giaNhap, nsx, loaiHang);
+            _hangHoa.ThemHangHoa(hangHoa);
+        }
+        public void SuaHangHoa(HangHoa hangHoa)
+        {
+            _hangHoa.SuaHangHoa(hangHoa);
+        }
+        public void XoaHangHoa(decimal maHangHoa)
+        {
+            _hangHoa.XoaHangHoa(maHangHoa);
         }
     }
 }

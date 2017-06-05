@@ -298,6 +298,15 @@ warning 6002: The table/view 'VANDUNG277.VIEWNHASANXUAT' does not have a primary
           <Parameter Name="P_TENCHUCVU" Type="nvarchar2" Mode="In" />
           <Parameter Name="P_MOTA" Type="nvarchar2" Mode="In" />
         </Function>
+        <Function Name="SUAHANGHOA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="VANDUNG277">
+          <Parameter Name="P_MAHANGHOA" Type="number" Mode="In" />
+          <Parameter Name="P_TENHANGHOA" Type="nvarchar2" Mode="In" />
+          <Parameter Name="P_MOTA" Type="nvarchar2" Mode="In" />
+          <Parameter Name="P_SOLUONGTON" Type="number" Mode="In" />
+          <Parameter Name="P_GIANHAP" Type="number" Mode="In" />
+          <Parameter Name="P_MANSX" Type="number" Mode="In" />
+          <Parameter Name="P_MALOAIHANG" Type="number" Mode="In" />
+        </Function>
         <Function Name="THEMCHUCVU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="VANDUNG277">
           <Parameter Name="P_MACHUCVU" Type="number" Mode="In" />
           <Parameter Name="P_TENCHUCVU" Type="nvarchar2" Mode="In" />
@@ -310,6 +319,9 @@ warning 6002: The table/view 'VANDUNG277.VIEWNHASANXUAT' does not have a primary
           <Parameter Name="P_GIANHAP" Type="number" Mode="In" />
           <Parameter Name="P_MANSX" Type="number" Mode="In" />
           <Parameter Name="P_MALOAIHANG" Type="number" Mode="In" />
+        </Function>
+        <Function Name="XOAHANGHOA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="VANDUNG277">
+          <Parameter Name="P_MAHANGHOA" Type="number" Mode="In" />
         </Function>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="CT_NHAPHANG" EntityType="Self.CT_NHAPHANG" Schema="VANDUNG277" store:Type="Tables" />
@@ -772,6 +784,18 @@ FROM "VANDUNG277"."VIEWNHASANXUAT" "VIEWNHASANXUAT"</DefiningQuery>
             <Parameter Name="P_MANSX" Mode="In" Type="Decimal" />
             <Parameter Name="P_MALOAIHANG" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <FunctionImport Name="SUAHANGHOA">
+            <Parameter Name="P_MAHANGHOA" Mode="In" Type="Decimal" />
+            <Parameter Name="P_TENHANGHOA" Mode="In" Type="String" />
+            <Parameter Name="P_MOTA" Mode="In" Type="String" />
+            <Parameter Name="P_SOLUONGTON" Mode="In" Type="Decimal" />
+            <Parameter Name="P_GIANHAP" Mode="In" Type="Decimal" />
+            <Parameter Name="P_MANSX" Mode="In" Type="Decimal" />
+            <Parameter Name="P_MALOAIHANG" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="XOAHANGHOA">
+            <Parameter Name="P_MAHANGHOA" Mode="In" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="VIEWLOAIHANG">
           <Key>
@@ -949,6 +973,8 @@ FROM "VANDUNG277"."VIEWNHASANXUAT" "VIEWNHASANXUAT"</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="THEMHANGHOA" FunctionName="Model.Store.THEMHANGHOA" />
+          <FunctionImportMapping FunctionImportName="SUAHANGHOA" FunctionName="Model.Store.SUAHANGHOA" />
+          <FunctionImportMapping FunctionImportName="XOAHANGHOA" FunctionName="Model.Store.XOAHANGHOA" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
