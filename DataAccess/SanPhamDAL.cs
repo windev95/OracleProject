@@ -21,5 +21,10 @@ namespace DataAccess
                 TENNSX = item.TENNSX
             }).ToList();
         }        
+        public bool ThemHangHoa(string tenHangHoa, string moTa, decimal soLuongTon, decimal giaNhap, decimal nsx, decimal loaiHang)
+        {
+            db.THEMHANGHOA(tenHangHoa, moTa, soLuongTon, giaNhap, nsx, loaiHang);
+            return true;
+        }
     }
 }

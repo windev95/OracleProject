@@ -303,6 +303,14 @@ warning 6002: The table/view 'VANDUNG277.VIEWNHASANXUAT' does not have a primary
           <Parameter Name="P_TENCHUCVU" Type="nvarchar2" Mode="In" />
           <Parameter Name="P_MOTA" Type="nvarchar2" Mode="In" />
         </Function>
+        <Function Name="THEMHANGHOA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="VANDUNG277">
+          <Parameter Name="P_TENHANGHOA" Type="nvarchar2" Mode="In" />
+          <Parameter Name="P_MOTA" Type="nvarchar2" Mode="In" />
+          <Parameter Name="P_SOLUONGTON" Type="number" Mode="In" />
+          <Parameter Name="P_GIANHAP" Type="number" Mode="In" />
+          <Parameter Name="P_MANSX" Type="number" Mode="In" />
+          <Parameter Name="P_MALOAIHANG" Type="number" Mode="In" />
+        </Function>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="CT_NHAPHANG" EntityType="Self.CT_NHAPHANG" Schema="VANDUNG277" store:Type="Tables" />
           <EntitySet Name="CHUCVU" EntityType="Self.CHUCVU" Schema="VANDUNG277" store:Type="Tables" />
@@ -756,6 +764,14 @@ FROM "VANDUNG277"."VIEWNHASANXUAT" "VIEWNHASANXUAT"</DefiningQuery>
           </FunctionImport>
           <EntitySet Name="VIEWLOAIHANGs" EntityType="Model.VIEWLOAIHANG" />
           <EntitySet Name="VIEWNHASANXUATs" EntityType="Model.VIEWNHASANXUAT" />
+          <FunctionImport Name="THEMHANGHOA">
+            <Parameter Name="P_TENHANGHOA" Mode="In" Type="String" />
+            <Parameter Name="P_MOTA" Mode="In" Type="String" />
+            <Parameter Name="P_SOLUONGTON" Mode="In" Type="Decimal" />
+            <Parameter Name="P_GIANHAP" Mode="In" Type="Decimal" />
+            <Parameter Name="P_MANSX" Mode="In" Type="Decimal" />
+            <Parameter Name="P_MALOAIHANG" Mode="In" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="VIEWLOAIHANG">
           <Key>
@@ -932,6 +948,7 @@ FROM "VANDUNG277"."VIEWNHASANXUAT" "VIEWNHASANXUAT"</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="THEMHANGHOA" FunctionName="Model.Store.THEMHANGHOA" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

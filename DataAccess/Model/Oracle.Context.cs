@@ -77,5 +77,34 @@ namespace DataAccess.Model
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("THEMCHUCVU", p_MACHUCVUParameter, p_TENCHUCVUParameter, p_MOTAParameter);
         }
+    
+        public virtual int THEMHANGHOA(string p_TENHANGHOA, string p_MOTA, Nullable<decimal> p_SOLUONGTON, Nullable<decimal> p_GIANHAP, Nullable<decimal> p_MANSX, Nullable<decimal> p_MALOAIHANG)
+        {
+            var p_TENHANGHOAParameter = p_TENHANGHOA != null ?
+                new ObjectParameter("P_TENHANGHOA", p_TENHANGHOA) :
+                new ObjectParameter("P_TENHANGHOA", typeof(string));
+    
+            var p_MOTAParameter = p_MOTA != null ?
+                new ObjectParameter("P_MOTA", p_MOTA) :
+                new ObjectParameter("P_MOTA", typeof(string));
+    
+            var p_SOLUONGTONParameter = p_SOLUONGTON.HasValue ?
+                new ObjectParameter("P_SOLUONGTON", p_SOLUONGTON) :
+                new ObjectParameter("P_SOLUONGTON", typeof(decimal));
+    
+            var p_GIANHAPParameter = p_GIANHAP.HasValue ?
+                new ObjectParameter("P_GIANHAP", p_GIANHAP) :
+                new ObjectParameter("P_GIANHAP", typeof(decimal));
+    
+            var p_MANSXParameter = p_MANSX.HasValue ?
+                new ObjectParameter("P_MANSX", p_MANSX) :
+                new ObjectParameter("P_MANSX", typeof(decimal));
+    
+            var p_MALOAIHANGParameter = p_MALOAIHANG.HasValue ?
+                new ObjectParameter("P_MALOAIHANG", p_MALOAIHANG) :
+                new ObjectParameter("P_MALOAIHANG", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("THEMHANGHOA", p_TENHANGHOAParameter, p_MOTAParameter, p_SOLUONGTONParameter, p_GIANHAPParameter, p_MANSXParameter, p_MALOAIHANGParameter);
+        }
     }
 }

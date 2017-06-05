@@ -10,6 +10,7 @@ namespace SaleManager.San_Pham
         private readonly SanPhamBUS _sanPham = new SanPhamBUS();
         private readonly NhaSanXuatBUS _nsx = new NhaSanXuatBUS();
         private readonly LoaiHangHoaBUS _loaiHang = new LoaiHangHoaBUS();
+        private bool _loaiLuu;
         #endregion
 
         #region Load From
@@ -22,6 +23,8 @@ namespace SaleManager.San_Pham
         {
             LoadNhaSanXuat();
             LoadLoaiHang();
+            SetButton(true);
+            SetText(true);
         }
 
         private void gridControl_Load(object sender, System.EventArgs e)
@@ -40,20 +43,53 @@ namespace SaleManager.San_Pham
             luLoaiHangHoa.Properties.ValueMember = "MALOAIHANG";
             luLoaiHangHoa.Properties.DisplayMember = "TENLOAIHANG";
         }
+        private void LoadThongTinHangHoa()
+        {
+            ClearText();
+            if (TENLOAIHANG != null) luLoaiHangHoa.EditValue = luLoaiHangHoa.Properties.GetKeyValueByDisplayText(gridView.GetFocusedRowCellDisplayText(TENLOAIHANG));
+            if (TENNSX != null) luNhaSanXuat.EditValue = luNhaSanXuat.Properties.GetKeyValueByDisplayText(gridView.GetFocusedRowCellDisplayText(TENNSX));
+            if (TENHANGHOA != null) txtTenSanPham.Text = gridView.GetFocusedRowCellDisplayText(TENHANGHOA);
+            if (MOTA != null) txtMoTa.Text = gridView.GetFocusedRowCellDisplayText(MOTA);
+            if (SOLUONGTON != null) txtSoLuongTon.Text = gridView.GetFocusedRowCellDisplayText(SOLUONGTON);
+            if (GIANHAP != null) txtGiaNhap.Text = gridView.GetFocusedRowCellDisplayText(GIANHAP);
+        }
         #endregion
 
         #region Thêm, Xóa, Sửa
         private void btnThem_Click(object sender, System.EventArgs e)
         {
-            XtraMessageBox.Show("Thêm");
+            _loaiLuu = true;
+            SetButton(false);
+            SetText(false);
+            ClearText();
         }
         private void btnSua_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            XtraMessageBox.Show("Sửa");
+            _loaiLuu = false;
+            SetButton(true);
+            SetText(true);
+            LoadThongTinHangHoa();            
         }
         private void btnLuu_Click(object sender, System.EventArgs e)
         {
-            XtraMessageBox.Show("Lưu");
+            var tenHangHoa = txtTenSanPham.Text;
+            var moTa = txtMoTa.Text;
+            var soLuongTon = decimal.Parse(txtSoLuongTon.Text);
+            var giaNhap = decimal.Parse(txtGiaNhap.Text);
+            var nsx = decimal.Parse(luNhaSanXuat.EditValue.ToString());
+            var loaiHang = decimal.Parse(luLoaiHangHoa.EditValue.ToString());
+            if (_loaiLuu)
+            {
+                _sanPham.ThemHangHoa(tenHangHoa, moTa, soLuongTon, giaNhap, nsx, loaiHang);
+            }
+            else
+            {
+
+            }
+            SetButton(true);
+            SetText(true);
+            ClearText();
+            gridControl_Load(sender, e);
         }
         private void btnXoa_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
@@ -65,12 +101,43 @@ namespace SaleManager.San_Pham
         }
         private void gridControl_Click(object sender, System.EventArgs e)
         {
-            if (TENLOAIHANG != null) luLoaiHangHoa.EditValue = gridView.GetFocusedRowCellDisplayText(TENLOAIHANG);
-            if (TENNSX != null) luNhaSanXuat.EditValue = gridView.GetFocusedRowCellDisplayText(TENNSX);
-            if (TENHANGHOA != null) txtTenSanPham.Text = gridView.GetFocusedRowCellDisplayText(TENHANGHOA);
-            if (MOTA != null) txtMoTa.Text = gridView.GetFocusedRowCellDisplayText(MOTA);
-            if (SOLUONGTON != null) txtSoLuongTon.Text = gridView.GetFocusedRowCellDisplayText(SOLUONGTON);
-            if (GIANHAP != null) txtGiaNhap.Text = gridView.GetFocusedRowCellDisplayText(GIANHAP);
+            LoadThongTinHangHoa();
+        }
+        #endregion
+
+        #region Set Button, Text
+        /// <summary>
+        /// Set ẩn hoặc hiện Button
+        /// </summary>
+        /// <param name="type">= True btnThem hiện</param>
+        private void SetButton(bool type)
+        {
+            btnThem.Enabled = type;
+            btnLuu.Enabled = !type;
+            btnHuy.Enabled = !type;
+        }
+        /// <summary>
+        /// Set ẩn hoặc cho sửa các trường thông tin
+        /// </summary>
+        /// <param name="type">= true không cho sửa</param>
+        private void SetText(bool type)
+        {
+            txtTenSanPham.Properties.ReadOnly = type;
+            txtSoLuongTon.Properties.ReadOnly = type;
+            txtGiaNhap.Properties.ReadOnly = type;
+            txtMoTa.Properties.ReadOnly = type;
+            luLoaiHangHoa.Properties.ReadOnly = type;
+            luNhaSanXuat.Properties.ReadOnly = type;
+            gridControl.Enabled = type;
+        }
+        private void ClearText()
+        {
+            txtTenSanPham.Text = "";
+            txtSoLuongTon.Text = "";
+            txtMoTa.Text = "";
+            txtGiaNhap.Text = "";
+            //luLoaiHangHoa.EditValue = null;
+            //luNhaSanXuat.EditValue = null;
         }
         #endregion
     }

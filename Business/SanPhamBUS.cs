@@ -11,5 +11,9 @@ namespace Business
         {
             return _sanPham.ViewHangHoa();
         }
+        public void ThemHangHoa(string tenHangHoa, string moTa, decimal soLuongTon, decimal giaNhap, decimal nsx, decimal loaiHang)
+        {
+            _sanPham.ThemHangHoa(tenHangHoa, moTa, soLuongTon, giaNhap, nsx, loaiHang);
+        }
     }
 }
