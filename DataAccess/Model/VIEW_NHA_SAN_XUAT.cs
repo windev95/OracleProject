@@ -12,17 +12,9 @@ namespace DataAccess.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class CHUCVU
+    public partial class VIEW_NHA_SAN_XUAT
     {
-        public CHUCVU()
-        {
-            this.NHANVIENs = new HashSet<NHANVIEN>();
-        }
-    
-        public decimal MACHUCVU { get; set; }
-        public string TENCHUCVU { get; set; }
-        public string MOTA { get; set; }
-    
-        public virtual ICollection<NHANVIEN> NHANVIENs { get; set; }
+        public decimal MANSX { get; set; }
+        public string TENNSX { get; set; }
     }
 }

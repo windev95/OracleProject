@@ -12,19 +12,8 @@ namespace DataAccess.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class PHIEUXUAT
+    public partial class VIEW_TEN_HANG_HOA
     {
-        public PHIEUXUAT()
-        {
-            this.CT_PHIEUXUAT = new HashSet<CT_PHIEUXUAT>();
-        }
-    
-        public decimal MAPX { get; set; }
-        public System.DateTime NGAYXUATPHIEU { get; set; }
-        public decimal MANHANVIEN { get; set; }
-        public short TINHTRANG { get; set; }
-    
-        public virtual NHANVIEN NHANVIEN { get; set; }
-        public virtual ICollection<CT_PHIEUXUAT> CT_PHIEUXUAT { get; set; }
+        public string TENHANGHOA { get; set; }
     }
 }

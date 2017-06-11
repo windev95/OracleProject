@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCSanPham));
             this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -45,6 +45,7 @@
             this.XOA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnXoa = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbThongBao = new System.Windows.Forms.Label();
             this.txtGiaNhap = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.luLoaiHangHoa = new DevExpress.XtraEditors.LookUpEdit();
@@ -208,7 +209,7 @@
             this.btnSua.AppearanceReadOnly.Options.UseImage = true;
             this.btnSua.AutoHeight = false;
             this.btnSua.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.BottomCenter, global::SaleManager.Properties.Resources.edit, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.BottomCenter, global::SaleManager.Properties.Resources.edit, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
             this.btnSua.Name = "btnSua";
             this.btnSua.ReadOnly = true;
             this.btnSua.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -231,7 +232,7 @@
             this.btnXoa.AppearanceReadOnly.Options.UseImage = true;
             this.btnXoa.AutoHeight = false;
             this.btnXoa.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::SaleManager.Properties.Resources.delete, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::SaleManager.Properties.Resources.delete, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.ReadOnly = true;
             this.btnXoa.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -241,6 +242,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.lbThongBao);
             this.groupBox1.Controls.Add(this.txtGiaNhap);
             this.groupBox1.Controls.Add(this.labelControl6);
             this.groupBox1.Controls.Add(this.luLoaiHangHoa);
@@ -257,17 +259,27 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             // 
+            // lbThongBao
+            // 
+            this.lbThongBao.AutoSize = true;
+            this.lbThongBao.Location = new System.Drawing.Point(126, 14);
+            this.lbThongBao.Name = "lbThongBao";
+            this.lbThongBao.Size = new System.Drawing.Size(0, 13);
+            this.lbThongBao.TabIndex = 82;
+            // 
             // txtGiaNhap
             // 
-            this.txtGiaNhap.Location = new System.Drawing.Point(123, 75);
+            this.txtGiaNhap.Location = new System.Drawing.Point(126, 85);
             this.txtGiaNhap.Name = "txtGiaNhap";
+            this.txtGiaNhap.Properties.Mask.EditMask = "n0";
+            this.txtGiaNhap.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtGiaNhap.Size = new System.Drawing.Size(342, 20);
             this.txtGiaNhap.TabIndex = 3;
             // 
             // labelControl6
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.labelControl6.Location = new System.Drawing.Point(18, 76);
+            this.labelControl6.Location = new System.Drawing.Point(21, 86);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(51, 16);
             this.labelControl6.TabIndex = 81;
@@ -275,7 +287,7 @@
             // 
             // luLoaiHangHoa
             // 
-            this.luLoaiHangHoa.Location = new System.Drawing.Point(123, 101);
+            this.luLoaiHangHoa.Location = new System.Drawing.Point(126, 111);
             this.luLoaiHangHoa.Name = "luLoaiHangHoa";
             this.luLoaiHangHoa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -286,7 +298,7 @@
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.labelControl4.Location = new System.Drawing.Point(18, 104);
+            this.labelControl4.Location = new System.Drawing.Point(21, 114);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(82, 16);
             this.labelControl4.TabIndex = 79;
@@ -294,7 +306,7 @@
             // 
             // luNhaSanXuat
             // 
-            this.luNhaSanXuat.Location = new System.Drawing.Point(123, 130);
+            this.luNhaSanXuat.Location = new System.Drawing.Point(126, 140);
             this.luNhaSanXuat.Name = "luNhaSanXuat";
             this.luNhaSanXuat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -305,7 +317,7 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.labelControl3.Location = new System.Drawing.Point(18, 134);
+            this.labelControl3.Location = new System.Drawing.Point(21, 144);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(78, 16);
             this.labelControl3.TabIndex = 77;
@@ -313,15 +325,17 @@
             // 
             // txtSoLuongTon
             // 
-            this.txtSoLuongTon.Location = new System.Drawing.Point(123, 49);
+            this.txtSoLuongTon.Location = new System.Drawing.Point(126, 59);
             this.txtSoLuongTon.Name = "txtSoLuongTon";
+            this.txtSoLuongTon.Properties.Mask.EditMask = "n0";
+            this.txtSoLuongTon.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtSoLuongTon.Size = new System.Drawing.Size(342, 20);
             this.txtSoLuongTon.TabIndex = 2;
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.labelControl2.Location = new System.Drawing.Point(18, 50);
+            this.labelControl2.Location = new System.Drawing.Point(21, 60);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(80, 16);
             this.labelControl2.TabIndex = 73;
@@ -329,15 +343,17 @@
             // 
             // txtTenSanPham
             // 
-            this.txtTenSanPham.Location = new System.Drawing.Point(123, 23);
+            this.txtTenSanPham.Location = new System.Drawing.Point(126, 33);
             this.txtTenSanPham.Name = "txtTenSanPham";
             this.txtTenSanPham.Size = new System.Drawing.Size(342, 20);
             this.txtTenSanPham.TabIndex = 1;
+            this.txtTenSanPham.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.txtTenSanPham_EditValueChanging);
+            this.txtTenSanPham.TextChanged += new System.EventHandler(this.txtTenSanPham_TextChanged);
             // 
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.labelControl1.Location = new System.Drawing.Point(18, 24);
+            this.labelControl1.Location = new System.Drawing.Point(21, 34);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(84, 16);
             this.labelControl1.TabIndex = 71;
@@ -359,7 +375,7 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.labelControl5.Location = new System.Drawing.Point(24, 52);
+            this.labelControl5.Location = new System.Drawing.Point(24, 65);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(41, 16);
             this.labelControl5.TabIndex = 69;
@@ -369,17 +385,18 @@
             // 
             this.txtMoTa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMoTa.Location = new System.Drawing.Point(86, 20);
+            this.txtMoTa.Location = new System.Drawing.Point(86, 33);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Size = new System.Drawing.Size(391, 72);
             this.txtMoTa.TabIndex = 6;
+            this.txtMoTa.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.txtMoTa_EditValueChanging);
             // 
             // gbTuyChon
             // 
             this.gbTuyChon.Controls.Add(this.btnHuy);
             this.gbTuyChon.Controls.Add(this.btnThem);
             this.gbTuyChon.Controls.Add(this.btnLuu);
-            this.gbTuyChon.Location = new System.Drawing.Point(86, 98);
+            this.gbTuyChon.Location = new System.Drawing.Point(86, 111);
             this.gbTuyChon.Name = "gbTuyChon";
             this.gbTuyChon.Size = new System.Drawing.Size(282, 52);
             this.gbTuyChon.TabIndex = 67;
@@ -483,5 +500,6 @@
         internal DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnSua;
         private DevExpress.XtraGrid.Columns.GridColumn SUA;
         private DevExpress.XtraGrid.Columns.GridColumn XOA;
+        private System.Windows.Forms.Label lbThongBao;
     }
 }

@@ -3,6 +3,7 @@ using Business;
 using DevExpress.XtraEditors.Controls;
 using DataTransferObject;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace SaleManager.San_Pham
 {
@@ -12,8 +13,9 @@ namespace SaleManager.San_Pham
         private readonly SanPhamBUS _hangHoa = new SanPhamBUS();
         private readonly NhaSanXuatBUS _nsx = new NhaSanXuatBUS();
         private readonly LoaiHangHoaBUS _loaiHang = new LoaiHangHoaBUS();
-        private bool _loaiLuu;
-        private decimal _maHangHoa;
+        private bool? _loaiLuu;
+        private decimal? _maHangHoa;
+        private string _tenHangHoa;
         #endregion
 
         #region Load From
@@ -50,6 +52,7 @@ namespace SaleManager.San_Pham
         {
             ClearText();
             if (MAHANGHOA != null) _maHangHoa = decimal.Parse(gridView.GetFocusedRowCellDisplayText(MAHANGHOA));
+            if (TENHANGHOA != null) _tenHangHoa = gridView.GetFocusedRowCellDisplayText(TENHANGHOA);
             if (TENLOAIHANG != null) luLoaiHangHoa.EditValue = luLoaiHangHoa.Properties.GetKeyValueByDisplayText(gridView.GetFocusedRowCellDisplayText(TENLOAIHANG));
             if (TENNSX != null) luNhaSanXuat.EditValue = luNhaSanXuat.Properties.GetKeyValueByDisplayText(gridView.GetFocusedRowCellDisplayText(TENNSX));
             if (TENHANGHOA != null) txtTenSanPham.Text = gridView.GetFocusedRowCellDisplayText(TENHANGHOA);
@@ -72,12 +75,12 @@ namespace SaleManager.San_Pham
             _loaiLuu = false;
             SetButton(false);
             SetText(false);
-            LoadThongTinHangHoa();            
+            LoadThongTinHangHoa();
         }
         private void btnLuu_Click(object sender, System.EventArgs e)
         {
             var hangHoa = new HangHoa {
-                MAHANGHOA = _maHangHoa,
+                MAHANGHOA = _maHangHoa.GetValueOrDefault(),
                 TENHANGHOA = txtTenSanPham.Text,
                 MOTA = txtMoTa.Text,
                 SOLUONGTON = decimal.Parse(txtSoLuongTon.Text),
@@ -85,17 +88,20 @@ namespace SaleManager.San_Pham
                 MANSX = decimal.Parse(luNhaSanXuat.EditValue.ToString()),
                 MALOAIHANG = decimal.Parse(luLoaiHangHoa.EditValue.ToString())
             };
-            if (_loaiLuu)
+            if (_loaiLuu == true)
             {
                 _hangHoa.ThemHangHoa(hangHoa);
             }
-            else if(!_loaiLuu)
+            else if(_loaiLuu == false)
             {
                 _hangHoa.SuaHangHoa(hangHoa);
             }
             SetButton(true);
             SetText(true);
             ClearText();
+            _maHangHoa = null;
+            _loaiLuu = null;
+            _tenHangHoa = null;
             gridControl_Load(sender, e);
         }
         private void btnXoa_ButtonClick(object sender, ButtonPressedEventArgs e)
@@ -127,6 +133,9 @@ namespace SaleManager.San_Pham
             SetButton(true);
             SetText(true);
             ClearText();
+            _maHangHoa = null;
+            _loaiLuu = null;
+            _tenHangHoa = null;
             gridControl_Load(sender, e);
         }
         private void gridControl_Click(object sender, System.EventArgs e)
@@ -166,8 +175,49 @@ namespace SaleManager.San_Pham
             txtSoLuongTon.Text = "";
             txtMoTa.Text = "";
             txtGiaNhap.Text = "";
+            lbThongBao.Text = "";
             luLoaiHangHoa.EditValue = null;
             luNhaSanXuat.EditValue = null;
+            _maHangHoa = null;
+        }
+        #endregion
+
+        #region Validate
+        private void txtMoTa_EditValueChanging(object sender, ChangingEventArgs e)
+        {
+            if (e.NewValue?.ToString().Length > 200 || e.NewValue?.ToString() == "  ")
+                e.Cancel = true;
+        }
+        private void txtTenSanPham_EditValueChanging(object sender, ChangingEventArgs e)
+        {
+            if (e.NewValue?.ToString().Length > 100 || e.NewValue?.ToString() == "  ")
+                e.Cancel = true;
+        }
+
+        private void txtTenSanPham_TextChanged(object sender, System.EventArgs e)
+        {
+            if (_loaiLuu == null) return;
+            btnLuu.Enabled = false;
+            if(txtTenSanPham.Text.Length >= 4)
+            {
+                var check = _hangHoa.KiemTraTenHangHoa(txtTenSanPham.Text, _tenHangHoa, _loaiLuu.GetValueOrDefault());
+                if(check)
+                {
+                    lbThongBao.ForeColor = Color.Blue;
+                    lbThongBao.Text = @"Chấp Nhận";
+                    btnLuu.Enabled = true;
+                }
+                else
+                {
+                    lbThongBao.ForeColor = Color.Red;
+                    lbThongBao.Text = @"Tên Hàng Hóa Đã Được Dùng";
+                }
+            }
+            else
+            {
+                lbThongBao.ForeColor = Color.Red;
+                lbThongBao.Text = @"Tên Hàng Hóa Qúa Ngắn";
+            }
         }
         #endregion
     }

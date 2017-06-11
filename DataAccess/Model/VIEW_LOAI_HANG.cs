@@ -12,16 +12,9 @@ namespace DataAccess.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class NHASANXUAT
+    public partial class VIEW_LOAI_HANG
     {
-        public NHASANXUAT()
-        {
-            this.HANGHOAs = new HashSet<HANGHOA>();
-        }
-    
-        public decimal MANSX { get; set; }
-        public string TENNSX { get; set; }
-    
-        public virtual ICollection<HANGHOA> HANGHOAs { get; set; }
+        public decimal MALOAIHANG { get; set; }
+        public string TENLOAIHANG { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace DataAccess
         private readonly Model.Oracle db = new Model.Oracle();
         public List<NhaSanXuat> ViewNhaSanXuat()
         {
-            return db.VIEWNHASANXUATs.Select(item => new NhaSanXuat
+            return db.VIEW_NHA_SAN_XUAT.Select(item => new NhaSanXuat
             {
                 MANSX = item.MANSX,
                 TENNSX = item.TENNSX

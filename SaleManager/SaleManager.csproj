@@ -68,6 +68,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hoa_Don\UCHoaDonNhap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Hoa_Don\UCHoaDonNhap.Designer.cs">
+      <DependentUpon>UCHoaDonNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hoa_Don\UCHoaDonXuat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Hoa_Don\UCHoaDonXuat.Designer.cs">
+      <DependentUpon>UCHoaDonXuat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Man_Hinh_Loading\ManHinhKhoiDong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +112,12 @@
     <Compile Include="San_Pham\UCSanPham.Designer.cs">
       <DependentUpon>UCSanPham.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Hoa_Don\UCHoaDonNhap.resx">
+      <DependentUpon>UCHoaDonNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hoa_Don\UCHoaDonXuat.resx">
+      <DependentUpon>UCHoaDonXuat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
