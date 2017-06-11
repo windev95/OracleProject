@@ -41,6 +41,15 @@ warning 6002: The table/view 'VANDUNG277.VIEW_NHA_SAN_XUAT' does not have a prim
           <Property Name="TENNSX" Type="nvarchar2" MaxLength="40" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'VANDUNG277.VIEW_SDT_KHACH_HANG' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="VIEW_SDT_KHACH_HANG">
+          <Key>
+            <PropertyRef Name="MAKHACHHANG" />
+          </Key>
+          <Property Name="MAKHACHHANG" Type="number" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="SODIENTHOAI" Type="varchar2" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'VANDUNG277.VIEW_TEN_HANG_HOA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="VIEW_TEN_HANG_HOA">
           <Key>
@@ -110,6 +119,12 @@ FROM "VANDUNG277"."VIEW_LOAI_HANG" "VIEW_LOAI_HANG"</DefiningQuery>
 "VIEW_NHA_SAN_XUAT"."TENNSX" AS "TENNSX"
 FROM "VANDUNG277"."VIEW_NHA_SAN_XUAT" "VIEW_NHA_SAN_XUAT"</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VIEW_SDT_KHACH_HANG" EntityType="Self.VIEW_SDT_KHACH_HANG" store:Type="Views" store:Schema="VANDUNG277">
+            <DefiningQuery>SELECT 
+"VIEW_SDT_KHACH_HANG"."MAKHACHHANG" AS "MAKHACHHANG", 
+"VIEW_SDT_KHACH_HANG"."SODIENTHOAI" AS "SODIENTHOAI"
+FROM "VANDUNG277"."VIEW_SDT_KHACH_HANG" "VIEW_SDT_KHACH_HANG"</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="VIEW_TEN_HANG_HOA" EntityType="Self.VIEW_TEN_HANG_HOA" store:Type="Views" store:Schema="VANDUNG277">
             <DefiningQuery>SELECT 
 "VIEW_TEN_HANG_HOA"."TENHANGHOA" AS "TENHANGHOA"
@@ -163,6 +178,7 @@ FROM "VANDUNG277"."VIEW_TEN_HANG_HOA" "VIEW_TEN_HANG_HOA"</DefiningQuery>
           <Parameter Name="P_MAHANGHOA" Mode="In" Type="Decimal" />
           </FunctionImport>
           <EntitySet Name="VIEW_TEN_HANG_HOA" EntityType="ModelOracle.VIEW_TEN_HANG_HOA" />
+          <EntitySet Name="VIEW_SDT_KHACH_HANG" EntityType="ModelOracle.VIEW_SDT_KHACH_HANG" />
         </EntityContainer>
         <EntityType Name="VIEW_HANG_HOA">
           <Key>
@@ -198,6 +214,13 @@ FROM "VANDUNG277"."VIEW_TEN_HANG_HOA" "VIEW_TEN_HANG_HOA"</DefiningQuery>
             <PropertyRef Name="TENHANGHOA" />
           </Key>
           <Property Name="TENHANGHOA" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VIEW_SDT_KHACH_HANG">
+          <Key>
+            <PropertyRef Name="MAKHACHHANG" />
+          </Key>
+          <Property Name="MAKHACHHANG" Type="Int32" Nullable="false" />
+          <Property Name="SODIENTHOAI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -244,6 +267,14 @@ FROM "VANDUNG277"."VIEW_TEN_HANG_HOA" "VIEW_TEN_HANG_HOA"</DefiningQuery>
             <EntityTypeMapping TypeName="ModelOracle.VIEW_TEN_HANG_HOA">
               <MappingFragment StoreEntitySet="VIEW_TEN_HANG_HOA">
                 <ScalarProperty Name="TENHANGHOA" ColumnName="TENHANGHOA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VIEW_SDT_KHACH_HANG">
+            <EntityTypeMapping TypeName="ModelOracle.VIEW_SDT_KHACH_HANG">
+              <MappingFragment StoreEntitySet="VIEW_SDT_KHACH_HANG">
+                <ScalarProperty Name="SODIENTHOAI" ColumnName="SODIENTHOAI" />
+                <ScalarProperty Name="MAKHACHHANG" ColumnName="MAKHACHHANG" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

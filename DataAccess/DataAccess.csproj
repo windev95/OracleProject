@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KhachHangDAL.cs" />
     <Compile Include="LoaiHangHoaDAL.cs" />
     <Compile Include="Model\Oracle.Context.cs">
       <AutoGen>True</AutoGen>
@@ -78,6 +79,9 @@
       <DependentUpon>Oracle.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\VIEW_NHA_SAN_XUAT.cs">
+      <DependentUpon>Oracle.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\VIEW_SDT_KHACH_HANG.cs">
       <DependentUpon>Oracle.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\VIEW_TEN_HANG_HOA.cs">

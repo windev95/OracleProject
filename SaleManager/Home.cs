@@ -2,6 +2,7 @@
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using SaleManager.San_Pham;
+using SaleManager.Hoa_Don;
 using AddTab;
 using DevExpress.XtraTab.ViewInfo;
 using DevExpress.XtraTab;
@@ -73,6 +74,17 @@ namespace SaleManager
         {
             SplashScreenManager.ShowForm(typeof(ManHinhLoading));
             AddTab("Loại Sản Phẩm", new UCLoaiSanPham());
+        }
+        private void btnHoaDonXuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SplashScreenManager.ShowForm(typeof(ManHinhLoading));
+            AddTab("Phiếu Xuất", new UCHoaDonXuat());
+        }
+
+        private void btnHoaDonNhap_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SplashScreenManager.ShowForm(typeof(ManHinhLoading));
+            AddTab("Phiếu Nhập", new UCHoaDonNhap());
         }
         #endregion
     }

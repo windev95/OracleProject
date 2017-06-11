@@ -50,6 +50,10 @@ namespace SaleManager
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnHoaDonXuat = new DevExpress.XtraBars.BarButtonItem();
+            this.btnHoaDonNhap = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -71,12 +75,15 @@ namespace SaleManager
             this.skinRibbonGalleryBarItem1,
             this.ribbonGalleryBarItem1,
             this.btnSanPham,
-            this.btnLoaiSanPham});
+            this.btnLoaiSanPham,
+            this.btnHoaDonXuat,
+            this.btnHoaDonNhap});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 29;
+            this.ribbonControl1.MaxItemId = 31;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1});
+            this.ribbonPage1,
+            this.ribbonPage2});
             this.ribbonControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemZoomTrackBar1});
             this.ribbonControl1.ShowToolbarCustomizeItem = false;
@@ -169,6 +176,36 @@ namespace SaleManager
             this.xtraTabControl1.TabIndex = 19;
             this.xtraTabControl1.CloseButtonClick += new System.EventHandler(this.xtraTabControl1_CloseButtonClick);
             // 
+            // ribbonPage2
+            // 
+            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup2});
+            this.ribbonPage2.Name = "ribbonPage2";
+            this.ribbonPage2.Text = "Hóa Đơn";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnHoaDonXuat);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnHoaDonNhap);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "Quản Lý Hóa Đơn";
+            // 
+            // btnHoaDonXuat
+            // 
+            this.btnHoaDonXuat.Caption = "Hóa Đơn Xuất";
+            this.btnHoaDonXuat.Id = 29;
+            this.btnHoaDonXuat.ImageUri.Uri = "Backward";
+            this.btnHoaDonXuat.Name = "btnHoaDonXuat";
+            this.btnHoaDonXuat.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHoaDonXuat_ItemClick);
+            // 
+            // btnHoaDonNhap
+            // 
+            this.btnHoaDonNhap.Caption = "Hóa Đơn Nhập";
+            this.btnHoaDonNhap.Id = 30;
+            this.btnHoaDonNhap.ImageUri.Uri = "Forward";
+            this.btnHoaDonNhap.Name = "btnHoaDonNhap";
+            this.btnHoaDonNhap.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnHoaDonNhap_ItemClick);
+            // 
             // Home
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -207,5 +244,9 @@ namespace SaleManager
         private BarButtonItem btnSanPham;
         private BarButtonItem btnLoaiSanPham;
         private RibbonPageGroup ribbonPageGroup1;
+        private BarButtonItem btnHoaDonXuat;
+        private BarButtonItem btnHoaDonNhap;
+        private RibbonPage ribbonPage2;
+        private RibbonPageGroup ribbonPageGroup2;
     }
 }

@@ -7,3 +7,4 @@ C:\Users\dangs\Desktop\SaleManager\SaleManager\obj\Debug\SaleManager.San_Pham.UC
 C:\Users\dangs\Desktop\SaleManager\SaleManager\obj\Debug\SaleManager.San_Pham.UCSanPham.resources
 C:\Users\dangs\Desktop\SaleManager\SaleManager\obj\Debug\SaleManager.csproj.GenerateResource.Cache
 C:\Users\dangs\Desktop\SaleManager\SaleManager\obj\Debug\SaleManager.exe.licenses
+C:\Users\BoyIt\Desktop\OracleProject\SaleManager\bin\Debug\SaleManager.exe.config

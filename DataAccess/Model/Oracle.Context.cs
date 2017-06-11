@@ -32,6 +32,7 @@ namespace DataAccess.Model
         public DbSet<VIEW_LOAI_HANG> VIEW_LOAI_HANG { get; set; }
         public DbSet<VIEW_NHA_SAN_XUAT> VIEW_NHA_SAN_XUAT { get; set; }
         public DbSet<VIEW_TEN_HANG_HOA> VIEW_TEN_HANG_HOA { get; set; }
+        public DbSet<VIEW_SDT_KHACH_HANG> VIEW_SDT_KHACH_HANG { get; set; }
     
         public virtual int SUA_HANG_HOA(Nullable<decimal> p_MAHANGHOA, string p_TENHANGHOA, string p_MOTA, Nullable<decimal> p_SOLUONGTON, Nullable<decimal> p_GIANHAP, Nullable<decimal> p_MANSX, Nullable<decimal> p_MALOAIHANG)
         {

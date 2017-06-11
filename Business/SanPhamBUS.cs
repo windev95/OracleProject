@@ -12,6 +12,10 @@ namespace Business
         {
             return _hangHoa.ViewHangHoa();
         }
+        public List<HangHoa> ViewChonHangHoa()
+        {
+            return _hangHoa.ViewChonHangHoa();
+        }
         public List<string> ViewTenHangHoa()
         {
             return _hangHoa.ViewTenHangHoa();

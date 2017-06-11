@@ -9,6 +9,7 @@
         <EntityTypeShape EntityType="ModelOracle.VIEW_LOAI_HANG" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="ModelOracle.VIEW_NHA_SAN_XUAT" Width="1.5" PointX="2.75" PointY="3.75" />
         <EntityTypeShape EntityType="ModelOracle.VIEW_TEN_HANG_HOA" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ModelOracle.VIEW_SDT_KHACH_HANG" Width="1.5" PointX="5.375" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

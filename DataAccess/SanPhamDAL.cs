@@ -19,7 +19,18 @@ namespace DataAccess
                 TENLOAIHANG = item.TENLOAIHANG,
                 TENNSX = item.TENNSX
             }).ToList();
-        }        
+        }
+        public List<HangHoa> ViewChonHangHoa()
+        {
+            return db.VIEW_HANG_HOA.Select(item => new HangHoa
+            {
+                MAHANGHOA = item.MAHANGHOA,
+                TENHANGHOA = item.TENHANGHOA,
+                GIANHAP = (item.GIANHAP * 110)/100,
+                SOLUONGTON = item.SOLUONGTON,
+                TENNSX = item.TENNSX
+            }).ToList();
+        }
         public List<string> ViewTenHangHoa()
         {
             return db.VIEW_TEN_HANG_HOA.Select(item => item.TENHANGHOA).ToList();

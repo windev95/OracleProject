@@ -172,6 +172,10 @@ BEGIN
     COMMIT;
 END;
 
+--------------------------------------------------------------------
+--11/6/2017---------------------------------------------------------
+--------------------------------------------------------------------
+
 --TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST-TEST--     
 SELECT * FROM VIEW_HANG_HOA;
 SELECT * FROM VIEW_LOAI_HANG;
